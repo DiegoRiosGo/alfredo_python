@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+}
+
+.main-nav{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    
+}
+.main-nav ul{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    padding-left: 15px;
+    margin-right: auto;
+    font-size: 2rem;
+    color: rgb(64, 143, 117);
+}
+.nav-link{
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 25px 15px;
+    position: relative;
+    color: rgb(71, 69, 79);
+}
+
+.nav-link:hover.nav-link:after{
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 10px;
+    left: 0;
+    background: rgba(85, 189, 154, 0.233);
+}
+
+.pic__one{
+
+background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/foto1.jpg) ; 
+} 
+
+.pic__two{
+
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/foto2.webp) ;
+    }
+    .pic__three{
+
+        background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/foto3.jpg) ;
+        }
+            
+
+
+.carousel__item{
+    height: calc(100vh - 69.2px );
+    margin: auto;
+    position: relative;
+    color:aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+
+}
+
+.carousel__content{
+    position:absolute;
+    top: 50%;
+   left: 50%; 
+   transform: translate(-50%,-50%);
+}
+
+.carousel__content h1{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+
+}
+
+.carousel__content p{
+font-size: 1.5rem;
+margin: 20px 0;
+
+}
+
+.btn{
+    font-size: 1.3rem;
+    padding: 15px 10px;
+    border-radius: 7%;
+    border: #fff;
+}
+
+.action-btn{
+    background: rgb(54, 146, 115);
+    border: none;
+    color: aliceblue;
+}
+.secondary-btn{
+    background: rgb(21, 214, 150);
+    border: none;
+    color: aliceblue;
+}
+.prev{
+    position: absolute;
+    color:#fff;
+    font-size: 2.5rem;
+    top:50%;
+    z-index:10 ;
+    left: 25px;
+}
+.next{
+    position: absolute;
+    color:#fff;
+    font-size: 2.5rem;
+    top:50%;
+    z-index:10 ;
+    right: 25px;  
+}

@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(36, 33, 33);
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(11, 63, 11));
+    
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 80px;
+    cursor: pointer;
+    
+  }
+.interfaz{
+    background-color: rgb(54, 53, 53);
+    padding: 20px;
+    color: rgb(64, 223, 64);
+    margin: 250px;
+    margin-top: 250px;
+    border-radius: 4px;
+    width: 300px;
+    letter-spacing: 1px;
+    font-family: 'calibri';
+    animation: glitch1 0.5s infinite;
+    
+}
+.interfaz:nth-child(2){
+    color: #0ef0e1;
+    animation: glitch2 1.0s infinite;
+}
+.interfaz:nth-child(3){
+    color:#ff94eb;
+    animation: glitch3 1.0s infinite;
+}
+@keyframes glitch1 {
+    0%{
+        transform: none;
+        opacity: 1;
+        color: #ff94eb;
+    }
+    50%{
+        transform: skew(-2deg,0.6deg);
+        opacity: 0.75;
+    }
+    100%{
+        transform: none;
+        opacity:1;
+        color: rgb(59, 207, 59);
+    }
+}
+@keyframes glitch2 {
+    0%{
+        transform: none;
+        opacity: 0.25;
+    }
+    50%{
+        transform: translate(-3px, -1px);
+        opacity: 0.5;
+        color: rgb(59, 207, 59);
+        
+}
+100%{
+transform: none;
+opacity:0.25;
+color: red;
+}
+
+}
+@keyframes glitch3 {
+    0%{
+        transform:none;
+        opacitty:0.25;
+    }
+    50%{
+        transform: translate(5px, 1px);
+        opacity: 0.5;
+    }
+    100%{
+        transform: none;
+        opacity: 0.25;
+    }
+    
+}

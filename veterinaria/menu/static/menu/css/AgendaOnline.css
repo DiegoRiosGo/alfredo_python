@@ -1,0 +1,306 @@
+/* Form Styles */
+body {
+  background: #f8f8f8;
+  font-family: 'arial';
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(../img/patitasfondo.jpg);
+  background-repeat: space;
+
+}
+
+
+.container {
+  width: 600px;
+  margin: 80px auto;
+}
+
+.container header {
+  text-align: center;
+}
+
+.container header h2 {
+  color: #000;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+.container header p {
+  color: rgb(61, 61, 61);
+  margin: 0 0 35px;
+}
+
+.container footer {
+  width: 100%;
+  padding: 15px 40px;
+  margin: 0 0 -40px -40px;
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+}
+
+.container footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+.container footer .fa {
+  color: #e74c3c;
+}
+
+/* Magic Starts here */
+.form {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+
+.form:before,
+.form:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.form .field {
+  width: 50%;
+  padding: 20px 20px 5px;
+  border-bottom: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  float: left;
+  transition: 0.3s linear;
+}
+
+.form .field.full {
+  width: 100%;
+}
+
+.form .field:nth-child(4n) {
+  border-left: 1px solid #e5e5e5;
+}
+
+.form .field label {
+  color: #a1a1a1;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form .field input,
+form .field textarea,
+form .field select {
+  outline: none;
+  background: none;
+  width: 100%;
+  border: 0;
+  padding: 8px 0;
+  color: #666;
+  font-family: 'proxima-nova';
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.3s linear;
+}
+
+.form .field input[type=file] {
+  font-size: 11px;
+}
+
+.form .checkbox {
+  display: block;
+  clear: both;
+  text-align: center;
+  margin-bottom: 25px;
+
+  padding: 20px 10px;
+  color: #a1a1a1;
+  font-family: 'proxima-nova';
+  font-size: 14px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.form .checkbox a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.form input[type="checkbox"] label {
+  background: #000;
+  height: 30px;
+  border: none;
+}
+
+.form button {
+  cursor: pointer;
+  display: block;
+  background: #31d8a6;
+  width: 180px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 16px 0;
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: 'proxima-nova';
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.2s linear;
+}
+
+.form button:hover {
+  background: #44ac7b;
+}
+
+@media screen and (max-width:992px) and (min-width:578) {
+  nav {
+    font-size: 22px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+
+  .container header h2 {
+    font-size: 30px;
+    font-weight: 600px;
+    line-height: 40px;
+  }
+
+
+  .form {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width:577px) {
+  nav {
+    font-size: 22px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+
+  nav>a {
+    margin-right: 5px;
+  }
+
+  .textos-header h1 {
+    font-size: 35px;
+
+  }
+
+  .textos-header h2 {
+    font-size: 20px;
+  }
+
+  /* portafolio */
+  .portafolio p {
+    text-align: center;
+  }
+
+
+  /* ABOUT US */
+
+  .imagen-about-us {
+    margin-bottom: 60px;
+    width: 99%;
+  }
+
+  .sobre-nosotros .contenido-textos {
+    width: 95%;
+  }
+
+  /* Galeria */
+
+  .imagen-port {
+    width: 95%;
+  }
+
+  /* Clients */
+
+  .cards .card {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards .card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Footer */
+
+  .contenedor-footer {
+    flex-direction: column;
+    border: none;
+  }
+
+  .content-foo {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .content-foo h4 {
+    border: none;
+  }
+
+  .content-foo p {
+    color: #ccc;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 20px;
+  }
+
+  .titulo-final {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:576px) {
+  nav {
+    font-size: 16px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+}
+
+@media screen and (min-width:576px) {
+  nav {
+    font-size: 16px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+}
+
+@media screen and (min-width:768px) {
+  nav {
+    font-size: 19px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+}
+
+@media screen and (min-width:992px) {
+  nav {
+    font-size: 20px;
+        text-align: left;
+        padding: 30px 0 0 0;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  nav {
+    font-size: 20px;
+    text-align: left;
+    padding: 30px 0 0 0;
+  }
+}
