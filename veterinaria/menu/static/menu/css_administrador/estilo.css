@@ -1,0 +1,436 @@
+/* REGISTRO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.EDITAR{
+    margin: 10px;
+}
+.body {
+    width: 400px;
+    background-image: url(../img/Nosotros2.jpg);
+    background-size: cover;
+    padding: 30px;
+    border-radius: 4px;
+    font-family: 'arial';
+    color: rgb(0, 0, 0);
+    width: auto;
+    height: 700px;
+
+
+
+    }
+    .interfaz{
+    /* INTERFAZ*/
+    height: auto;
+    background-color: rgb(33, 99, 100);
+    padding: 10px;
+    margin: 480px;
+    margin-top: 5px;
+    font-family: 'calibri';
+    color: rgb(255, 255, 255);
+    border: 2px solid #083e4e;
+    position:absolute;
+    }
+.controls{
+    width: 200px;
+    background-color: rgb(117, 170, 173);
+    border-top-color: rgb(255, 255, 255);
+    border-left-color: white;
+    border-bottom-color: white ;
+    padding: 5px;
+    border-radius: 2px;
+    border: 2px solid white;
+    
+}
+.terminos{
+    color: rgb(235, 63, 63);
+    height: 20px;
+}
+/* 3 */
+.btn-3 {
+    background: rgb(0, 238, 159);
+  background: linear-gradient(0deg, rgb(0, 238, 167) 0%, rgb(2, 251, 176) 100%);
+    width: 130px;
+    height: 45px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    
+  }
+  .btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-3:before,
+  .btn-3:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+     background: rgb(2, 251, 189);
+    transition: all 0.3s ease;
+  }
+  .btn-3:before {
+    height: 0%;
+    width: 2px;
+  }
+  .btn-3:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-3:hover{
+     background: transparent;
+    box-shadow: none;
+  }
+  .btn-3:hover:before {
+    height: 100%;
+  }
+  .btn-3:hover:after {
+    width: 100%;
+  }
+  .btn-3 span:hover{
+     color: rgb(111, 255, 207);
+  }
+  .btn-3 span:before,
+  .btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+     background: rgb(97, 247, 202);
+    transition: all 0.3s ease;
+  }
+  .btn-3 span:before {
+    width: 2px;
+    height: 0%;
+  }
+  .btn-3 span:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-3 span:hover:before {
+    height: 100%;
+  }
+  .btn-3 span:hover:after {
+    width: 100%;
+  }
+
+  
+
+  
+.botons{
+    background-color: #4CAF50; /* Green */
+    border:#dddddd;
+    border-radius: 7%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.interfaz p{
+    color: white;
+    text-align: center;
+    font-family: 'calibri';
+    border: 2px;
+    height: 20px;
+    
+
+}
+.pete{
+    color: aliceblue;
+}
+  /* -------------------------html.LOGIN ----------------------------*/
+
+.cuerpo{
+   font-family: 'calibri';
+   text-align: center;
+}
+.pagina{
+    text-decoration: none;
+    color:#4CAF50;
+    margin-left: 20px;
+}
+
+.crear_cuenta{
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+.dropbtn {
+    color: rgb(53, 53, 53);
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+        background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /*-------------------------------------------------------------------------------------*/
+/*
+  <div class="dropdown">
+  <button class="dropbtn">Otros</button>
+  <div class="dropdown-content">
+  <a href="#">Iniciar Sesión</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+  </div>
+</div>
+  */
+
+  /*----------------------------------------------------------------------------------*/
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #44afca;
+  }
+/*-------------------------INICIO.html------------------*/
+.interfaz_inicio{
+    font-family: 'calibri';
+    font-size: large;
+    font-style: obliquex    ;
+}
+
+.crear a{
+text-decoration: none;
+color: rgb(0, 0, 0)
+}
+
+.dropdown{
+  background-color: none
+;  
+}
+
+
+
+@keyframes cambio{
+    0%{margin-left:0;}
+    20%{margin-left: 0;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -100%;}
+    85%{margin-left: -100%;}
+
+    90%{margin-left: 0;}
+    100%{margin-left: 0;}
+}
+
+.pag_inin a{
+text-decoration: none;
+color:black
+}
+
+/*------------------------------CONTACTO-----------------------------*/
+
+.box{
+    width: auto;
+    height: auto;  
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: rgba(85, 214, 175, 0.623);
+    text-align: center;
+    font-family: 'calibri';
+    color: white;
+    font-size: xx-large
+}
+
+.interfaz_contacto{
+    height: 45%;
+    width: 45%;
+    border-radius: 6px;
+    background-color: rgb(238, 238, 238);
+    padding: 20px;
+    margin: 480px;
+    margin-top: 5px;
+    font-family: 'calibri';
+    color: rgb(34, 219, 173);
+    position: absolute;
+}
+
+.button{
+  
+    margin: 10px;
+   
+}
+
+.input{
+    background-color:rgb(220, 247, 240);
+    border-top-left-radius: 3px;
+    border-color: rgb(34, 219, 173) ;
+}
+
+.input1{
+    background-color:rgb(220, 247, 240);
+    border-top-left-radius: 3px;
+    border-color: rgb(34, 219, 173) ;
+    height: 100px;
+}
+
+/*----------------------------------------------------*/
+.styled-table { border-collapse: collapse;
+     margin: 29px 10; 
+     font-size: 1em;
+      font-family: sans-serif; 
+      min-width: 800px;
+       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+    }
+
+    .styled-table thead tr { background-color: #969696;
+         color: #998888;
+          text-align: middle; }
+
+          .styled-table th, .styled-table td { 
+            padding: 12px 15px; }
+            .styled-table tbody tr { border-bottom: 1px solid #dddddd; }
+
+.margin{
+    width: auto;
+    margin: 20px;
+}
+
+/*contacta con el cliente*/
+.icono{
+  height: 120px;
+}
+.styled-table { border-collapse: collapse; 
+    margin: 25px 0; 
+    font-size: 1em; 
+    font-family: sans-serif; 
+    min-width: 450px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+  }
+  table-fixed{
+    width: 100%;
+    background-color: #faf2f2;
+    }
+    thead{
+      background: rgba(114, 168, 147, 0.705);
+        color: rgb(236, 236, 236);
+    }
+    th{
+      padding: 20px 15px;
+      font-weight: 700;
+      text-transform:initial;
+    }
+    td{
+      padding: 15px;
+      border-bottom: solid rgb(0, 238, 159);
+    }
+    tbody tr{
+      cursor: pointer;
+    }
+    tbody tr:hover{
+      background: #e2e2e23b;
+    }
+    .container{
+  padding: 2%;
+    }
+
+    /*servicios zzz*/
+
+    .tablita{ border-collapse: collapse;
+        margin: 25px ; 
+        font-size: 1em;
+         font-family: sans-serif; 
+         min-width: 450px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+       }
+   
+       .tablita thead tr { background-color: #444242;
+            color: #ffffff;
+             text-align: middle; 
+            }
+            
+             .tablita th, .tablita td { 
+               padding: 12px 15px; }
+               .tablita tbody tr { border-bottom: 1px solid #dddddd; }
+
+
+.imagen{
+  width: 50px;
+  height: 40px;
+  
+}
+/* footer */
+
+footer{
+  background: #414141;
+  padding: 60px 0 30px 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.contenedor-footer{
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: auto;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.content-foo{
+  text-align: center;
+}
+
+.content-foo h4{
+  color: #fff;
+  border-bottom: 3px solid #af20d3;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.content-foo p{
+  color: #ccc;
+}
+
+.titulo-final{
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0 0 0;
+  color: #9e9797;
+}
+/*      RegistroCliente         */
+.editarboton{
+  padding:13px ;
+
+}
