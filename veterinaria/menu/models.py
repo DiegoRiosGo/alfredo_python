@@ -47,6 +47,7 @@ class Usuario(models.Model):
     claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Conrtaseña del usuario')
     idPreguntas = models.ForeignKey(Preguntas, on_delete=models.DO_NOTHING, verbose_name='Codigo de la pregunta')
     respuestaUsuario = models.CharField(max_length=50, null=True, blank=False, verbose_name='Respuesta al mensaje')
+    telefonoUsuario = models.IntegerField(null=true, blank=false, verbose_name='Telefono del usuario')
 
 class Mascota(models.Model):
     codigoChip = models.IntegerField(primary_key=True)
