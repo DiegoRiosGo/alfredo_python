@@ -60,7 +60,7 @@ class Mascota(models.Model):
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
 
 class Consulta(models.Model):
-    idConsulta = models.AutoField(primary_key=True,  verbose_name='Codigo de la consulta')
+    idConsulta = models.AutoField(primary_key=True, verbose_name='Codigo de la consulta')
     idMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING)
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
 
