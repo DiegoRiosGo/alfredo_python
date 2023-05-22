@@ -10,7 +10,7 @@ class Raza(models.Model):
 class Servicios(models.Model):
     idServicio = models.AutoField(primary_key=True, verbose_name='Codigo de los servicios')
     nombreServicio = models.CharField(max_length=35, null=True, blank=False, verbose_name='Nombre de los servicios')
-    precioServicio = models.IntegerField(max_length=6, null=True, blank=False, verbose_name='El precio de los servicios ')
+    precioServicio = models.IntegerField( null=True, blank=False, verbose_name='El precio de los servicios ')
 
 class Especialidad(models.Model):
     idEspecialidad = models.AutoField(primary_key= True, verbose_name= 'Codigo de la especialidad')
@@ -29,7 +29,7 @@ class Rol(models.Model):
     nombreRol = models.CharField(max_length=45, null=True, blank=False, verbose_name='Nombre del rol de usuario')
 
 class Preguntas(models.Model):
-    idPreguntas = models.IntegerField(primary_key=True, max_length=50, null=True, blank=False, verbose_name='Mensaje de consulta')
+    idPreguntas = models.IntegerField(primary_key=True, null=True, blank=False, verbose_name='Mensaje de consulta')
     nombrePregunta = models.CharField(max_length=35, null=True, blank=False, verbose_name= 'Nombre de la persona que hace las preguntas')
 
 class Usuario(models.Model):
@@ -49,7 +49,7 @@ class Usuario(models.Model):
     respuestaUsuario = models.CharField(max_length=50, null=True, blank=False, verbose_name='Respuesta al mensaje')
 
 class Mascota(models.Model):
-    codigoChip = models.CharField(primary_key=True)
+    codigoChip = models.IntegerField(primary_key=True)
     nombreMascota = models.CharField(max_length=50, verbose_name='Nombre de la mascota')
     edadMascota = models.IntegerField(verbose_name= 'Edad de la mascota')
     fechaNacimiento = models.DateField(auto_now=True, verbose_name= 'Fecha de nacimiento')
