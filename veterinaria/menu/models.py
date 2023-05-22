@@ -25,15 +25,15 @@ class Comuna(models.Model):
     region = models.ForeignKey(Region, on_delete=models.DO_NOTHING)
 
 class Rol(models.Model):
-    idRol = models.IntegerField(primary_key=True, null=True, blank=False, verbose_name='Codigo del rol de usuario')
+    idRol = models.IntegerField(primary_key=True,  verbose_name='Codigo del rol de usuario')
     nombreRol = models.CharField(max_length=45, null=True, blank=False, verbose_name='Nombre del rol de usuario')
 
 class Preguntas(models.Model):
-    idPreguntas = models.IntegerField(primary_key=True, null=True, blank=False, verbose_name='Mensaje de consulta')
+    idPreguntas = models.IntegerField(primary_key=True,  verbose_name='Mensaje de consulta')
     nombrePregunta = models.CharField(max_length=35, null=True, blank=False, verbose_name= 'Nombre de la persona que hace las preguntas')
 
 class Usuario(models.Model):
-    idUsuario = models.AutoField(primary_key=True, blank=False, null=True, verbose_name='Codigo de usuario')
+    idUsuario = models.AutoField(primary_key=True, verbose_name='Codigo de usuario')
     rutUsuario = models.CharField(max_length=10, blank=False, null=True, verbose_name='Rut del usuario')
     primerNombreUsuario = models.CharField(max_length=30, verbose_name='Nombre del usuario')
     apellidoUsuario = models.CharField(max_length=30, verbose_name='Apellido del usuario')
@@ -60,15 +60,15 @@ class Mascota(models.Model):
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
 
 class Consulta(models.Model):
-    idConsulta = models.AutoField(primary_key=True, null=True, blank=False, verbose_name='Codigo de la consulta')
+    idConsulta = models.AutoField(primary_key=True,  verbose_name='Codigo de la consulta')
     idMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING)
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
 
 class Detalle(models.Model):
-    idDetalle = models.AutoField(primary_key=True, null=True, blank=False, verbose_name='Codigo del detalle')
+    idDetalle = models.AutoField(primary_key=True, verbose_name='Codigo del detalle')
 
 class Mensaje(models.Model):
-    idMensaje = models.AutoField(primary_key=True, null=True, blank=False, verbose_name='Codigo del mensaje')
+    idMensaje = models.AutoField(primary_key=True, verbose_name='Codigo del mensaje')
     asuntoMensaje = models.CharField(max_length=10, null=True, blank=False, verbose_name='Asunto del mensaje')
     descripcionMensaje = models.CharField(max_length=10, null=True, blank=False, verbose_name='Descripcion del mensaje')
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
@@ -78,7 +78,7 @@ class Mensaje(models.Model):
 #statusMensaje, falta agregar
 
 class Respuesta(models.Model):
-    idRespuesta = models.AutoField(primary_key=True, null=True, blank=False, verbose_name='Codigo de la respuesta')
+    idRespuesta = models.AutoField(primary_key=True, verbose_name='Codigo de la respuesta')
     descripcionRespuesta = models.CharField(max_length=50, null=True, blank=False, verbose_name='Descripcion de la respuesta de los mensajes')
     idMensaje = models.ForeignKey(Mensaje, on_delete=models.DO_NOTHING)
     statusRespuesta = models.CharField(max_length=10, null=True, blank=False, verbose_name='Status de la respuesta de los mensajes')
