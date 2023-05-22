@@ -70,51 +70,73 @@
       </thead>
       <tbody>
         <tr>
-
+          <form action="">
           <td>example@gmail.com</td>
           <td >Juan Perez</td>
           <td >+56 9 4894 0670</td>
           <td>Mi perrito no come</td>
 
-          <td><input type="text" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
-              submit>Enviar</button> </td>
+          <td><input type="text" id="r" name="respuesta" size="20"> <button type="submit"  class="btn btn-outline-info" 
+            onclick='return enviarformulario_contacto_con_cliente();'
+              submit >Enviar</button> </td>
         </tr>
+        <div id="error"></div>
+      </form>
+
+      <form action="">
         <tr>
           <td>tupac@gmail.com</td>
           <td>Jeremías Gonzales</td>
           <td>+56 9 1109 4022</td>
           <td>No se baña el cochino</td>
 
-          <td><input type="text" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
+          <td><input type="text" id="r1" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
+            onclick='return enviarformulario_contacto_con_cliente1();'
               submit>Enviar</button> </td>
         </tr>
+        <div id="error"></div>
+      </form>
+
+      <form action="">
         <tr>
           <td>Gatitoc@gmail.com</td>
           <td>Jose Panco</td>
           <td>+56 9 1249 4022</td>
           <td>Tiene vomitos :c</td>
 
-          <td><input type="text" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
-              submit>Enviar</button> </td>
+          <td><input type="text" name="respuesta" size="20" id="r2"> <button type="submit" class="btn btn-outline-info"
+            onclick='return enviarformulario_contacto_con_cliente2();' >Enviar</button> submit>Enviar</button> </td>
         </tr>
+        <div id="error"></div>
+      </form>
+
+      <form action="">
+
+
         <tr>
           <td>mariasc@gmail.com</td>
           <td>Maria Pardo</td>
           <td>+56 9 1249 4022</td>
           <td>Se siente mal</td>
 
-          <td><input type="text" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
-              submit>Enviar</button> </td>
+          <td><input type="text" name="respuesta" size="20" id="r3"> <button type="submit" class="btn btn-outline-info"
+            onclick='return enviarformulario_contacto_con_cliente3();' submit>Enviar</button> </td>
         </tr>
+        <div id="error"></div>
+      </form>
+
+      <form action="">
         <tr>
           <td>correoss@gmail.com</td>
           <td>Alejandro kenedy</td>
           <td>+56 9 1249 4021</td>
           <td>Tiene fiebre, ¿qué puedo darle?</td>
 
-          <td><input type="text" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
-              submit>Enviar</button> </td>
+          <td><input type="text" name="respuesta" size="20" id="r4"> <button type="submit" class="btn btn-outline-info"
+            onclick='return enviarformulario_contacto_con_cliente4();' submit>Enviar</button> </td>
         </tr>
+        <div id="error"></div>
+      </form>
 
       </div>
       </tbody>
@@ -127,5 +149,5 @@
 
 
 </body>
-
+<script src="{%static 'menu/java_administrador/javaFormulario.js' %}"></script>
 </html>

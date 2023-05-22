@@ -39,7 +39,84 @@ function enviarformulario_r(){
 }
 
 
+var respuesta =document.getElementById(r);
+var respuesta1 =document.getElementById(r1);
+var respuesta2 =document.getElementById(r2);
+var respuesta3=document.getElementById(r3);
+var respuesta4 =document.getElementById(r4);
 
 
 
 
+function enviarformulario_contacto_con_cliente(){
+    console.log('Enviando');
+
+    var MensajeError =[];
+
+    if(r.value=== null||r.value=== ''){
+        MensajeError.push('Debe colocar una respuesta')
+    }
+
+
+    error.innerHTML =MensajeError.join(', ')
+    return false;
+
+}
+
+function enviarformulario_contacto_con_cliente1(){
+    console.log('Enviando');
+
+    var MensajeError =[];
+
+    if(r1.value=== null||r1.value=== ''){
+        MensajeError.push('Debe colocar una respuesta a este campo')
+
+    error.innerHTML =MensajeError.join(', ')
+    return false;
+
+}
+
+
+}
+
+function enviarformulario_contacto_con_cliente2(){
+    console.log('Enviando');
+
+    var MensajeError =[];
+
+    if(r2.value=== null||r2.value=== ''){
+        MensajeError.push('Debe colocar una respuesta a este campo')
+
+    error.innerHTML =MensajeError.join(', ')
+    return false;
+
+}
+}
+
+function enviarformulario_contacto_con_cliente3(){
+    console.log('Enviando');
+
+    var MensajeError =[];
+
+    if(r3.value=== null||r3.value=== ''){
+        MensajeError.push('Debe colocar una respuesta a este campo')
+
+    error.innerHTML =MensajeError.join(', ')
+    return false;
+
+}
+}
+
+function enviarformulario_contacto_con_cliente3(){
+    console.log('Enviando');
+
+    var MensajeError =[];
+
+    if(r4.value=== null||r4.value=== ''){
+        MensajeError.push('Debe colocar una respuesta a este campo')
+
+    error.innerHTML =MensajeError.join(', ')
+    return false;
+
+}
+}
