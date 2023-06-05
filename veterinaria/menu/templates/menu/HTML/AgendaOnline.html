@@ -69,7 +69,8 @@
 
     <!-- / START Form -->
     <div class='form'>
-      <form>
+      <form action="{% url 'crear_reserva' %}" method="POST" enctype="multipart/form-data">
+        {% crsf_token %}
         <div class='field'>
           <label for='username'>Nombre completo</label>
           <input id='username' name='username' type='text' placeholder="Ingresa tu Nombre completo">
@@ -81,10 +82,10 @@
         <div class='field'>
           <label for='tipo'>Tipo de reserva</label>
           <select id="tipo" name='tipo'>
-            <option value="opt_Consulta">Consulta </option>
-            <option value="opt_Exame">Examenes</option>
-            <option value="opt_Inter">Interconsultas </option>
-            <option value="opt_Cirugias">Cirugias</option>
+            <option id= "opt_Consulta" value="opt_Consulta">Consulta </option>
+            <option id="opt_Exame" value="opt_Exame">Examenes</option>
+            <option id="opt_Inter" value="opt_Inter">Interconsultas </option>
+            <option id="opt_Cirugias" value="opt_Cirugias">Cirugias</option>
           </select>
         </div>
         <div class='field'>

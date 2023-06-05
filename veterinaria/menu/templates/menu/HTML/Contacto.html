@@ -58,7 +58,8 @@
   <div class="box">CONTACTO</div>
 
   <div class="container">
-    <form id="contact" action="#">
+    <form action="{% url 'contactos' %}" id="contact"  method="POST" enctype="multipart/form-data" >
+      {% crsf_token %}
       <h3>Contacto</h3>
       <h4>Estamos aca para responder cualquier consulta que tengas!</h4>
       <fieldset>

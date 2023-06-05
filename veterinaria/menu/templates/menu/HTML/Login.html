@@ -21,7 +21,8 @@
 
 <!--VALIDACIONES JS CREAR CUENTA-->
 
-      <form action="#" id='formulario'>
+      <form action="{% url 'registrarse'%}" id='formulario' method="POST" enctype="multipart/form-data">
+        {% crsf_token %}
         <h1>Crear una cuenta</h1>
         <div class="social-container">
 
