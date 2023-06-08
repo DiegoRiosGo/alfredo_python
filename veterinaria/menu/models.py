@@ -55,8 +55,7 @@ class Preguntas(models.Model):
 class Usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True, verbose_name='Codigo de usuario')
     rutUsuario = models.CharField(max_length=10, blank=False, null=True, verbose_name='Rut del usuario')
-    primerNombreUsuario = models.CharField(max_length=30, verbose_name='Nombre del usuario')
-    apellidoUsuario = models.CharField(max_length=30, verbose_name='Apellido del usuario')
+    nombrecompletoUsuario = models.CharField(max_length=50, verbose_name='Nombre del usuario')
     correoUsuario = models.EmailField(max_length= 45,verbose_name='Correo del usuario')
     direccionUsuario = models.CharField(max_length= 50, verbose_name='Direccion del usuario')
     fechanacUsuario = models.DateField(auto_now=True, verbose_name='Fecha de nacimiento del usuario')
@@ -64,7 +63,7 @@ class Usuario(models.Model):
     idRol = models.ForeignKey(Rol, on_delete=models.DO_NOTHING)
     idEspecialidad = models.ForeignKey(Especialidad, on_delete=models.DO_NOTHING)
     nombreUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Nombre de inicio sesion del usuario')
-    claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Conrtaseña del usuario')
+    claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Contraseña del usuario')
     idPreguntas = models.ForeignKey(Preguntas, on_delete=models.DO_NOTHING, verbose_name='Codigo de la pregunta')
     respuestaUsuario = models.CharField(max_length=50, null=True, blank=False, verbose_name='Respuesta al mensaje')
     telefonoUsuario = models.IntegerField(null=True, blank=False, verbose_name='Telefono del usuario')
@@ -78,7 +77,6 @@ class Mascota(models.Model):
     edadMascota = models.IntegerField(verbose_name= 'Edad de la mascota')
     fechaNacimiento = models.DateField(auto_now=True, verbose_name= 'Fecha de nacimiento')
     foto = models.ImageField(upload_to="mascotas")
-#falta agregar la fecha de nacimiento(listo)
     raza = models.ForeignKey(Raza,on_delete=models.DO_NOTHING)
     idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
 
@@ -120,15 +118,34 @@ class Respuesta(models.Model):
         return self.descripcionRespuesta
 
 
+class Reserva(models.Model):
+    nombreUsuario = models.CharField(primary_key=True, max_length=30, verbose_name='Nombre del usuario' )
+    correoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Correo del usuario')
+    tipoReserva = models.CharField(verbose_name='Tipo de reserva')
+    consultaReserva = models.CharField(verbose_name='consulta de reserva')
+    examenReserva = models.CharField(verbose_name='Examen de la reserva')
+    cirujias = models.CharField(verbose_name='Cirujias')
+    Archivos = models.ImageField(upload_to='Reserva', verbose_name='Archivos')
+    fechaReserva = models.DateField(auto_now=True, verbose_name='Fecha de la reservacion')
+    mensajeReserva = models.CharField(max_length='50', verbose_name='Mensaje de las reservaciones')
 
-
+class Contacto(models.Model):
+    nombrecompletoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Nombre del contacto')
+    correoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Correo del contacto')
+    telefonoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Telefono de contacto')
     
+    nombreMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de la mascota')
+    mensajeContacto = models.CharField(max_length=50, null=True, blank=False, verbose_name='Mensaje del contacto')
 
+class Registarse(models.Model):
+    nombrecompletoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Nombre del usuario')
+    correoUsuario = models.ForeignKey(Usuario, )
+    claveRegistrarse = models.CharField(max_length=10, verbose_name='Clave de registro')
+    ClavenuevaRegistrarse = models.CharField(max_length=10, verbose_name='La nueva clave de usuario')
 
-
-
-
-
+class iniciosesion(models.Model):
+    correo = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Correo del usuario')
+    claveUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Clave del correo del usuario')
 
 
 
