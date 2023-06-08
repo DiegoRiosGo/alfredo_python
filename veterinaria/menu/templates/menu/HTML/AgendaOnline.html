@@ -89,6 +89,11 @@
           </select>
         </div>
         <div class='field'>
+          <label for='tipo'>Chip</label>  
+          <input id='Id_Chip' name='Chip' type="number" placeholder="Ingresa el Chip de tu mascota" >
+        </div> 
+
+        <div class='field'>
           <label for='password'>Archivo (PDF o imagen) </label>
           <input accept=".jpg, .jpeg, .png, .pdf" type="file" id="file" name="file" required>
         </div>
@@ -98,10 +103,25 @@
           <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;</label>
         </div>
         <br>
+        <div class='field'>
+          <label for='tipo'>Nombre de Mascota</label>   
+          <input id='IdNombre_Mas' name='Nombre_Masc' type='text' placeholder="Ingresa el nombre de tu mascota" >
+        </div>
+
+        <div class='field'>
+          <label for='tipo'>Raza</label>   
+          <input id='Raza' name='Raza' type='text' placeholder="Ingresa la Raza de tu mascota"  >
+
+          </div>
+          <div class='field'>
+            <label for='tipo'>Edad Mascota</label>   
+            <input id='Raza' name='Raza' type='number' placeholder="Ingresa la Edad de tu mascota"  >
+  
+            </div>
 
 
         <div class='field full'>
-          <label for='rpassword'>Mensaje (opcional)</label>
+          <label for='rpassword'>Mensaje</label>
 
 
           <textarea name="message" class="form-textarea" id="textarea2" rows="8" cols="48"
