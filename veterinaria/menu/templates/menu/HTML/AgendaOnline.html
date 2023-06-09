@@ -82,10 +82,12 @@
         <div class='field'>
           <label for='tipo'>Tipo de reserva</label>
           <select id="tipo" name='tipo'>
-            <option id= "opt_Consulta" value="opt_Consulta">Consulta </option>
-            <option id="opt_Exame" value="opt_Exame">Examenes</option>
-            <option id="opt_Inter" value="opt_Inter">Interconsultas </option>
-            <option id="opt_Cirugias" value="opt_Cirugias">Cirugias</option>
+
+            {% for x in Servicios %}
+              <option value="{{x.idServicio}}"> {{x.nombreServicio}}
+              </option>
+            {% end for %}
+
           </select>
         </div>
         <div class='field'>

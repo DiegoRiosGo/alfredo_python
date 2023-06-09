@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db import models
 from django.shortcuts import render, redirect
-from .models import ReservaForm, NombreTabla_Contacto, NombreTabla_Registrarse,  NombreTabla_Login, NombreTabla_ContraseñaOlvidada,NombreTabla_ContraseñaOlvidada1
+from .models import Reserva,Raza,Region,Registarse,Respuesta,Rol,Especialidad,Usuario,iniciosesion,Preguntas,Servicios,Detalle,Comuna,Consulta,Contacto,Mascota,Mensaje,Model
 
 # Create your views here.
 def Inicio(request):
@@ -33,16 +33,13 @@ def crear_reserva(request):
     Nombre = request.post("username"),
     Email = request.post("email"),
     Tipo_Reserva = request.post("tipo"),
-    Consulta = request.post("opt_Consulta"),
-    Examen = request.post ("opt_Exame"),
-    InterConsulta = request.post("opt_Inter"),
-    Cirugias = request.post("opt_Cirugias"),
+    Chip = request.post("Id_Chip")
     Archivo = request.post("file"),
     Fecha_Reserva = request.post("arrive"),
     Mensaje = request.post("textarea2")
 
-    ReservaForm.objects.create("nombre= Nombre", "email= Email", "tipo_reserva= Tipo_Reserva", "consulta = Consulta", "examen = Examen", "opt_inter = InterConsulta" , "opt_cirugia = Cirugias", "archivo = Archivo",
-                               "fecha_reserva = Fecha_Reserva", "mensaje = Mensaje")
+    Reserva.objects.create("nombreUsuario= Nombre", "correoUsuarios= Email", "tipoReserva= Tipo_Reserva","chip = Chip", "Archivos = Archivo",
+                               "fechaReserva = Fecha_Reserva", "mensajeReserva = Mensaje")
     
 
     return redirect('AgendaOnline')
@@ -56,8 +53,8 @@ def contactos(request):
     NombreMascota = request.post("nombre_m_contacto"),
     Mensaje_Contacto= request.post("msg_contacto")
 
-    NombreTabla_Contacto.objects.create("nombre_contacto = Nombre_Contacto", "correo = Correo","numero_contacto = Numero","nombre_mascota = NombreMascota" ,
-                                "mensaje_contacto = Mensaje_Contacto")
+    Contacto.objects.create("NombreContacto = Nombre_Contacto", "correoContacto = Correo","TelefonoContacto = Numero","nombreMascota = NombreMascota" ,
+                                "mensajeContacto = Mensaje_Contacto")
     
     return redirect('Contacto')
 
@@ -67,35 +64,18 @@ def registrarse(request):
     Password = request.post ("contraseña"),
     Repetir_Contraseña = request.post("contraseña_nueva")
 
-    NombreTabla_Registrarse.objects.create("nombre_completo = Nombre_Completo", "correo = Correo_Login","password = Password",
-                                           "repetircontraseña = Repetir_Contraseña")
+    Registarse.objects.create("nombrecompletoUsuario = Nombre_Completo", "correoUsuario = Correo_Login","claveRegistrarse = Password",
+                                           "ClavenuevaRegistrarse = Repetir_Contraseña")
     
     return redirect('Login')
 
+#____________________________________________
 
-def inicioSesion(request):
+
+def inicioSesion (request):
     Correo_Login = request.post("correolog"),
     Contraseña_Login = request.post("contralog")
 
-    NombreTabla_Login.objects.create("correologin = Correo_Login", "contraseñalogin = Contraseña_Login")
+    iniciosesion.objects.create("correo = Correo_Login", "claveUsuario = Contraseña_Login")
 
     return redirect('Inicio')
-
-
-def olvidarContra(request):
-    Correo_Olvida = request.post("correoOlvida0"),
-    Contraseña_Olvida = request.post("contraseña0"),
-    Contra_Nueva_Olvida = request.post("contranueva0")
-
-    NombreTabla_ContraseñaOlvidada.objects.create("correo_olvidar = Correo_Olvida","nueva_contraseña = Contraseña_Olvida", "repetir_contraseña_nueva = Contra_Nueva_Olvida")
-
-    return redirect('login')
-
-def olvidarContra1(request):
-    Correo_Olvida = request.post("correoOlvida"),
-    Contraseña_Olvida = request.post("contraOlvida"),
-    Contra_Nueva_Olvida = request.post("contraNueva")
-
-    NombreTabla_ContraseñaOlvidada1.objects.create("correo_olvidar = Correo_Olvida","nueva_contraseña = Contraseña_Olvida", "repetir_contraseña_nueva = Contra_Nueva_Olvida")
-
-    return redirect('login')
