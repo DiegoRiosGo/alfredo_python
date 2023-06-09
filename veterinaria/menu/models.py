@@ -124,6 +124,7 @@ class Reserva(models.Model):
     Archivos = models.ImageField(upload_to='Reserva', verbose_name='Archivos')
     fechaReserva = models.DateField(auto_now=True, verbose_name='Fecha de la reservacion')
     mensajeReserva = models.CharField(max_length='50', verbose_name='Mensaje de las reservaciones')
+    
 
 
 class Contacto(models.Model):
