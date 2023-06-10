@@ -49,7 +49,7 @@ def crear_reserva(request):
 
 
 
-def contactos(request):
+def ingreso_contactos(request):
     Nombre_Contacto = request.post("nombre_contacto"),
     Correo = request.post("correo_contacto"),
     Numero = request.post("nro_contacto"),
@@ -61,7 +61,7 @@ def contactos(request):
     
     return redirect('Contacto')
 
-def registrarse(request):
+def ingreso_registrarse(request):
     Nombre_Completo = request.post("nombre"),
     Correo_Login = request.post ("correo"),
     Password = request.post ("contraseña"),

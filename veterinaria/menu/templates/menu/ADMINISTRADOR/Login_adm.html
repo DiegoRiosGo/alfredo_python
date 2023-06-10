@@ -21,7 +21,7 @@
 
   <div class="container" id="container">
     <div class="form-container sign-up-container" id="form">
-      <form action="#" class="formulario" id="formulario">
+      <form action="#" class="formulario" id="formulario" method="POST" enctype="multipart/form-data">
         <h1>Crear una cuenta</h1>
         <div class="social-container">
  
@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form action="#" method="POST" enctype="multipart/form-data">
         <h1>Iniciar sesión</h1>
         <div class="social-container">
           
@@ -70,3 +70,4 @@
   <script src="{%static 'menu/java_administrador/javaLogin.js' %}"></script>
   <script src="{%static 'menu/java_administrador/Login.js' %}"></script>
   <script src="{%static 'menu/java_administrador/Registrar.js' % }"></script>
+  {% endblock cuerpo %}

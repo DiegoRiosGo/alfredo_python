@@ -17,7 +17,7 @@ class Servicios(models.Model):
 
     def __str__(self) -> str:
         return self.nombreServicio
-
+'''
 class Especialidad(models.Model):
     idEspecialidad = models.AutoField(primary_key= True, verbose_name= 'Codigo de la especialidad')
     nombreEspecialidad = models.CharField(max_length=35, null=True, blank=False, verbose_name='Nombre de la especialidad')
@@ -25,7 +25,7 @@ class Especialidad(models.Model):
     def __str__(self) -> str:
         return self.nombreEspecialidad
 
-'''class Region(models.Model):
+class Region(models.Model):
     idRegion = models.IntegerField(primary_key=True, verbose_name='Codigo de la region')
     nombreRegion = models.CharField(max_length=35, null=True, blank=False, verbose_name='Nombre de la region')
 
