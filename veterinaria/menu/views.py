@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect,get_object_or_404
 from django.db import models
 from django.shortcuts import render, redirect
-from .models import ReservaForm, NombreTabla_Contacto, NombreTabla_Registrarse,  NombreTabla_Login, NombreTabla_ContraseñaOlvidada,NombreTabla_ContraseñaOlvidada1
+from .models import Reserva, Contacto, Registarse, iniciosesion, correoUsuario
+
 
 # Create your views here.
 def Inicio(request):
@@ -41,7 +42,7 @@ def crear_reserva(request):
     Fecha_Reserva = request.post("arrive"),
     Mensaje = request.post("textarea2")
 
-    ReservaForm.objects.create("nombre= Nombre", "email= Email", "tipo_reserva= Tipo_Reserva", "consulta = Consulta", "examen = Examen", "opt_inter = InterConsulta" , "opt_cirugia = Cirugias", "archivo = Archivo",
+    Reserva.objects.create("nombre= Nombre", "email= Email", "tipo_reserva= Tipo_Reserva", "consulta = Consulta", "examen = Examen", "opt_inter = InterConsulta" , "opt_cirugia = Cirugias", "archivo = Archivo",
                                "fecha_reserva = Fecha_Reserva", "mensaje = Mensaje")
     
 
@@ -56,7 +57,7 @@ def ingreso_contactos(request):
     NombreMascota = request.post("nombre_m_contacto"),
     Mensaje_Contacto= request.post("msg_contacto")
 
-    NombreTabla_Contacto.objects.create("nombre_contacto = Nombre_Contacto", "correo = Correo","numero_contacto = Numero","nombre_mascota = NombreMascota" ,
+    Contacto.objects.create("nombre_contacto = Nombre_Contacto", "correo = Correo","numero_contacto = Numero","nombre_mascota = NombreMascota" ,
                                 "mensaje_contacto = Mensaje_Contacto")
     
     return redirect('Contacto')
@@ -67,7 +68,7 @@ def ingreso_registrarse(request):
     Password = request.post ("contraseña"),
     Repetir_Contraseña = request.post("contraseña_nueva")
 
-    NombreTabla_Registrarse.objects.create("nombre_completo = Nombre_Completo", "correo = Correo_Login","password = Password",
+    Registarse.objects.create("nombre_completo = Nombre_Completo", "correo = Correo_Login","password = Password",
                                            "repetircontraseña = Repetir_Contraseña")
     
     return redirect('Login')
@@ -77,7 +78,7 @@ def inicioSesion(request):
     Correo_Login = request.post("correolog"),
     Contraseña_Login = request.post("contralog")
 
-    NombreTabla_Login.objects.create("correologin = Correo_Login", "contraseñalogin = Contraseña_Login")
+    iniciosesion.objects.create("correologin = Correo_Login", "contraseñalogin = Contraseña_Login")
 
     return redirect('Inicio')
 
@@ -87,7 +88,7 @@ def olvidarContra(request):
     Contraseña_Olvida = request.post("contraseña0"),
     Contra_Nueva_Olvida = request.post("contranueva0")
 
-    NombreTabla_ContraseñaOlvidada.objects.create("correo_olvidar = Correo_Olvida","nueva_contraseña = Contraseña_Olvida", "repetir_contraseña_nueva = Contra_Nueva_Olvida")
+    
 
     return redirect('login')
 
@@ -96,6 +97,19 @@ def olvidarContra1(request):
     Contraseña_Olvida = request.post("contraOlvida"),
     Contra_Nueva_Olvida = request.post("contraNueva")
 
-    NombreTabla_ContraseñaOlvidada1.objects.create("correo_olvidar = Correo_Olvida","nueva_contraseña = Contraseña_Olvida", "repetir_contraseña_nueva = Contra_Nueva_Olvida")
+   
 
     return redirect('login')
+
+
+def modificar(request,id):
+
+    Reservaf = Reserva.objects.get(correoUsuario ,id)
+
+
+    contexto = {
+        "form-agenda":Reservaf
+
+    }
+
+    return render(request, 'menu/HTML/AgendaOnline.html',contexto)

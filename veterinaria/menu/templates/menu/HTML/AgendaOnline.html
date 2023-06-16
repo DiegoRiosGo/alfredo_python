@@ -26,7 +26,7 @@
 
     <!-- / START Form -->
     <div class='form'>
-      <form action="{% url 'crear_reserva' %}" method="POST" enctype="multipart/form-data">
+      <form action="{% url 'crear_reserva' %}" method="POST" enctype="multipart/form-data" id="form-agenda">
         {% crsf_token %}
         <div class='field'>
           <label for='username'>Nombre completo</label>

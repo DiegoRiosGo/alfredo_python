@@ -10,26 +10,29 @@
   <link rel="stylesheet" href="{%static 'menu/css_administrador/estiloREGISTRO.css' %}">
     {% endblock estilos %}
     
-  
+  <form action="">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
+        <select name="form-control" name="reserva" id="reserva">
         {%for i in Reserva%}
-
+        {%if i.correoUsuario == datos.raza.correoUsuario%}
+        <option value="{{i.correoUsuario}}" selected>{{i.nombreUsuario}}</option>
+        {%else%}
+        <option value="{{i.correoUsuario}}">{{nombreUsuario}}</option>
+        {%endif%}
+        
 
         {%endfor%}
+      </select>
       </div>
+      <button type="submit" class="btn-btm-primary">Modificar</button>
     </div>
 
-
+  </form>
 
 
       
       {% block cuerpo %}
-    
-  <form action="" method="POST" enctype="multipart/form-data">
-     <div style="font-family: 'calibri'; margin-top: 20px;">En este espacio aparecerán las citas agendadas por los clientes, puedes modificar o eliminar</div>
-
-</form>
 
     
 </body>

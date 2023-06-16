@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import crear_reserva, contactos, registrarse, inicioSesion,olvidarContra,olvidarContra1
+from .views import crear_reserva, contactos, registrarse, inicioSesion,olvidarContra,olvidarContra1,modificar
 
 
 urlpatterns = [
@@ -28,7 +28,8 @@ urlpatterns = [
     path('registrarse/',registrarse, name="Registrarse"),
     path('inicioSesion/', inicioSesion, name="login"),
     path('olvidarContra/',olvidarContra, name="OlvidoContra"),
-    path('olvidarContra1/',olvidarContra1, name="olvidaste contraseña")
+    path('olvidarContra1/',olvidarContra1, name="olvidaste contraseña"),
+    path('modificar/',modificar, name="modificar")
 ]
 
 if settings.DEBUG:
