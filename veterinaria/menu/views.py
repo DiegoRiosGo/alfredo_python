@@ -113,3 +113,11 @@ def modificar(request,id):
     }
 
     return render(request, 'menu/HTML/AgendaOnline.html',contexto)
+
+
+def eliminar(request,id):
+    Reservaf = Reserva.objects.get(correoUsuario = id)
+
+    Reservaf.delete
+
+    return redirect('reserva-form')

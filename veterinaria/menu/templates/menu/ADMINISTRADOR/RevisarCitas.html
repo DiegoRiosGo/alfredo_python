@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="{%static 'menu/css_administrador/estiloREGISTRO.css' %}">
     {% endblock estilos %}
     
-  <form action="">
+  <form action="" id="reserva-form">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <select name="form-control" name="reserva" id="reserva">
         {%for i in Reserva%}
-        {%if i.correoUsuario == datos.raza.correoUsuario%}
+        {%if i.correoUsuario == datos.Reserva.correoUsuario%}
         <option value="{{i.correoUsuario}}" selected>{{i.nombreUsuario}}</option>
         {%else%}
         <option value="{{i.correoUsuario}}">{{nombreUsuario}}</option>
@@ -26,6 +26,8 @@
       </select>
       </div>
       <button type="submit" class="btn-btm-primary">Modificar</button>
+      <a href="{%url 'eliminar' i.correoUsuario %}" class="btn-btn-danger">Eliminar</a>
+
     </div>
 
   </form>
