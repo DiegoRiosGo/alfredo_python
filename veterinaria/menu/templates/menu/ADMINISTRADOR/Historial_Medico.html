@@ -16,97 +16,77 @@
       {% block cuerpo %}
   <br>
   <div class="box"> Historial Médico</div> <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <table class="table" id="table">
-          <div class="form-group has-search">
-            <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-            
-        
-          </thead>
-        <tbody>
-          <tr class="header-tabla-contacto">
-            <th>Foto de Mascota</th>
-            <th>Nombre Dueño</th>
-            <th>Nombre Mascota</th>
-            <th>Enfermedades</th>
-            <th>Diagnóstico</th>
-            <th>Edad</th>
-            <th>Código Chip</th>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/batman.jpg' %}"></td>
-            <td>    Mendoza Silva </td>
-            <td>Batman</td>
-            <td>Ninguna</td>
-            <td>Resfriado</td>
-            <td>4</td>
-            <td>3204</td>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/robin.webp' %}"></td>
-            <td>López Chamizo Jhon Alexander</td>
-            <td>Robin </td>
-            <td>Moquillo</td>
-            <td>Demartitis</td>
-            <td>11 </td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/dog1.jpg' %}"></td>
-            <td>Fernández Cano Sandra Marcela</td>
-            <td>Anaquin</td>
-            <td>Ninguna</td>
-            <td>Parvovirus</td>
-            <td>8</td>
-            <td>13</td>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/dog.webp' %}"></td>
-            <td>Rocha Zapata Mauricio José</td>
-            <td>Darth vader</td>
-            <td>gastroenteritis </td>
-            <td>gastroenteritis por covid</td>
-            <td>11</td>
-            <td>321</td>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/chihuahua.jpg' %}"></td>
-            <td>Bejarano Jiménez Alexandra</td>
-            <td>Yoda</td>
-            <td>Niguna</td>
-            <td>Rabia</td>
-            <td>4</td>
-            <td>152</td>
-          </tr>
-          <tr>
-            <td><img class="iman" src="{%static 'menu/img/gato2.png' %}"></td>
-            <td>Perea Ñuste Fanny Yescenia</td>
-            <td>Hikari</td>
-            <td>Ninguna</td>
-            <td>Parásitos intestinales</td>
-            <td>6</td>
-            <td>135</td>
-          </tr>
-        </tbody>
-        <!--<tfoot>
-            <tr>
-              <th class="">Foto</th>
-              <th class="">Nombre</th>
-              <th class="dt-filter-text">Cargo</th>
-              <th class="dt-filter-select">Dependencia</th>
-              <th class="">Número de extensión</th>
-              <th class="">Correo electrónico</th>
-              <th class="dt-filter-text">Ubicación</th>
-            </tr>
-          </tfoot>-->
-        </table>
-      </div>
-    </div>
-  </div>
+  <td>
+    {% for m in mascotas %}
+             {% for m in nombreD %}
+               <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td> {{m.nombrecompletoUsuario}} </td>
+               <td> {{m.nombreMascota}}</td>
+               <td>Ninguna</td>
+               <td>Resfriado</td>
+               <td>4</td>
+               <td>3204</td>
+               <td>{{m.edadMascota}}</td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             
+             <tr>
+               <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td>{{m.nombrecompletoUsuario}}</td>
+               <td>{{m.nombreMascota}}</td>
+               <td>Moquillo</td>
+               <td>Demartitis</td>
+               <td>11 </td>
+               <td>120</td>
+               <td>{{m.edadMascota}} </td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             <tr>
+               
+              <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td>{{m.nombrecompletoUsuario}}</td>
+               <td>{{m.nombreMascota}}</td>
+               <td>Ninguna</td>
+               <td>Parvovirus</td>
+               <td>8</td>
+               <td>13</td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             <tr>
+               <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td>{{m.nombrecompletoUsuario}}</td>
+               <td>Darth vader</td>
+               <td>gastroenteritis </td>
+               <td>gastroenteritis por covid</td>
+               <td>11</td>
+               <td>321</td>
+               <td>{{m.edadMascota}}</td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             <tr>
+               <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td>{{m.nombrecompletoUsuario}}</td>
+               <td>{{m.nombreMascota}}</td>
+               <td>Niguna</td>
+               <td>Rabia</td>
+               <td>4</td>
+               <td>152</td>
+               <td>{{m.edadMascota}}</td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             <tr>
+               <td><img src="{{m.foto.url}}" alt="No foto"></td>
+               <td>{{m.nombrecompletoUsuario}}</td>
+               <td>{{m.nombreMascota}}</td>
+               <td>Ninguna</td>
+               <td>Parásitos intestinales</td>
+               <td>6</td>
+               <td>135</td>
+               <td>{{m.edadMascota}}</td>
+               <td>{{m.codigoChip}}</td>
+             </tr>
+             {% endfor %}
+             {% endfor %}
 
 
 

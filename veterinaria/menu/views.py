@@ -121,3 +121,48 @@ def eliminar(request,id):
     Reservaf.delete
 
     return redirect('reserva-form')
+
+
+
+
+
+
+
+# --------------------------------------------------------------Create your views here (Vistas de Veterinario)-----------------------------------------------
+def Contacto_cliente(request):
+    return render(request,'menu/ADMINISTRADOR/Contacto_Cliente.html')
+
+def Historial_Medico(request):
+    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html')
+
+def Inicio_adm(request):
+    return render(request,'menu/ADMINISTRADOR/Inicio_adm.html')
+
+def Login_adm(request):
+    return render(request,'menu/ADMINISTRADOR/Login_adm.html')
+
+def Inicio_adm(request):
+    return render(request,'menu/ADMINISTRADOR/Inicio_adm.html')
+
+def Registro_paciente(request):
+    return render(request,'menu/ADMINISTRADOR/Registro_paciente.html')
+
+def RevisarCitas(request):
+    return render(request,'menu/ADMINISTRADOR/RevisarCitas.html')
+
+# -------------------------------------------------                ---------------------------------------------------------------------------
+
+
+def Historial_Medico1DatosM(request):
+    Historial_Medico2DatosM = Mascota.objects.all()
+    contexto={
+        "mascotas": Historial_Medico2DatosM
+    }
+    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
+
+def Historial_Medico2DatosD(request):
+    Historial_Medico2DatosD = Usuario.objects.all()
+    contexto={
+        "nombreD": Historial_Medico2DatosD
+    }
+    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
