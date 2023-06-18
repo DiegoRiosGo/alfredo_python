@@ -22,12 +22,12 @@
         {%endif%}
         
 
-        {%endfor%}
+  
       </select>
       </div>
-      <button type="submit" class="btn-btm-primary">Modificar</button>
-      <a href="{%url 'eliminar' i.correoUsuario %}" class="btn-btn-danger">Eliminar</a>
-
+      <a href="{%url 'modificar' i.nombreUsuario %}" class="btn-btn-primary">Modificar</a>
+      <a href="{%url 'eliminar' i.nombreUsuario %}" class="btn-btn-danger">Eliminar</a>
+       {%endfor%}
     </div>
 
   </form>

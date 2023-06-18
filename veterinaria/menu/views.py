@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.db import models
 from django.shortcuts import render, redirect
-from .models import Reserva, Contacto, Registarse, iniciosesion, correoUsuario
+from .models import Reserva, Contacto, Registarse, iniciosesion
 from django.contrib import messages
 
 
@@ -105,7 +105,7 @@ def olvidarContra1(request):
 
 def modificar(request,id):
 
-    Reservaf = Reserva.objects.get(correoUsuario ,id)
+    Reservaf = Reserva.objects.get(nombreUsuario = id)
 
 
     contexto = {
@@ -117,7 +117,7 @@ def modificar(request,id):
 
 
 def eliminar(request,id):
-    Reservaf = Reserva.objects.get(correoUsuario = id)
+    Reservaf = Reserva.objects.get(nombreUsuario = id)
 
     Reservaf.delete
 
