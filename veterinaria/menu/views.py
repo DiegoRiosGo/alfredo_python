@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.db import models
 from django.shortcuts import render, redirect
 from .models import Reserva, Contacto, Registarse, iniciosesion, correoUsuario
+from django.contrib import messages
 
 
 # Create your views here.
