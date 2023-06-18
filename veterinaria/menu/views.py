@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.db import models
 from django.shortcuts import render, redirect
-from .models import Reserva, Contacto, Registarse, iniciosesion
+from .models import Reserva, Contacto, Registarse, iniciosesion,Registro,Usuario,Mascota
 from django.contrib import messages
 
 
@@ -187,3 +187,18 @@ def paginalogin (request):
             messages.success(request,'¡Correo o Contraseña no correcto!')
 
     return render(request, 'Login.html')
+
+
+
+#------------------------------------REGISTRO MASCOTA------------------------------------------
+
+
+def registroMascota(request):
+    Nombre_mascota= request.post("Pet_Name"),
+    Raza_Mascota = request.post("Pet_Breed"),
+    nombreDueño = request.post("Owner_Name"),
+    Enfermedades_registro = request.post("Diseases")
+    Edad_mascota = request.post("Pet_Years")
+
+#nombre_mascota1 Posible nombre de variable
+    Registro.objects.create(nombre_mascota1 = Nombre_mascota, raza_mascota = Raza_Mascota, nombre_dueño1 = nombreDueño, enfermedades1 = Enfermedades_registro, años_mascota1 = Edad_mascota)

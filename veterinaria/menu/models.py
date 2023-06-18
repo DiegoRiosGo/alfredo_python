@@ -60,7 +60,7 @@ class Usuario(models.Model):
     correoUsuario = models.EmailField(max_length= 45,verbose_name='Correo del usuario')
     direccionUsuario = models.CharField(max_length= 50, verbose_name='Direccion del usuario')
     fechanacUsuario = models.DateField(auto_now=True, verbose_name='Fecha de nacimiento del usuario')
-    idEspecialidad = models.ForeignKey(Especialidad, on_delete=models.DO_NOTHING)
+    idEspecialidad = models.ForeignKey(verbose_name='Especialidad', on_delete=models.DO_NOTHING)
     nombreUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Nombre de inicio sesion del usuario')
     claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Contraseña del usuario')
     respuestaUsuario = models.CharField(max_length=50, null=True, blank=False, verbose_name='Respuesta al mensaje')
@@ -156,3 +156,10 @@ class olvidacontra1(models.Model):
     correoOlvida = models.ForeignKey(olvidarContra, on_delete=models.DO_NOTHING, verbose_name='Correo de recuperacion')
     contraolvida = models.ForeignKey(olvidarContra, on_delete=models.DO_NOTHING, verbose_name='Contraseña olvidada')
     contranuevaolvida = models.CharField(max_length=10, verbose_name='Nueva Contraseña')
+
+class Registro(models.Model):
+    nombreDueño = models.CharField(primary_key= True, max_length=50, verbose_name='Nombre del dueño de la mascota')
+    nombreMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de la mascota')
+    raza = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Raza de la mascota')
+    Enfermedades = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de enfermedad')
+    edadMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Edad de la mascota')
