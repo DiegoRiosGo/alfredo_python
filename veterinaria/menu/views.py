@@ -166,3 +166,23 @@ def Historial_Medico2DatosD(request):
         "nombreD": Historial_Medico2DatosD
     }
     return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
+
+
+
+
+
+
+
+#------------------------------PAGINALOGIN--------------------------
+
+def paginalogin (request):
+    if request.method=='POST':
+        try:
+            datosUsuario=iniciosesion.objects.get(correoInicio=request.POST['correoInicio'],contra=request.POST['claveInicio'])
+            print("Usuario=",datosUsuario)
+            if(datosUsuario.correoInicio=="admin@vetjuanita.cl"):
+                return redirect('Inicio')
+        except iniciosesion.DoesNotExist as e:
+            messages.success(request,'¡Correo o Contraseña no correcto!')
+
+    return render(request, 'Login.html')
