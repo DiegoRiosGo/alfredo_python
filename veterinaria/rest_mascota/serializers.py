@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Raza,Servicios,Usuario,Mascota,Reserva,Contacto,Respuesta
+from menuPy manage.py makemigrations.models import Raza,Servicios,Usuario,Mascota,Reserva,Contacto,Respuesta
 
 class ContactoSerializer(serializers.ModelSerializer):
     class Meta:
