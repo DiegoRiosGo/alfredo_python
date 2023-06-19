@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 def Inicio(request):
     return render(request,'menu/HTML/Inicio.html')
 
+
 def InicioLogueado(request):
     return render(request,'menu/HTML/InicioLogueado.html')
 
@@ -34,7 +35,7 @@ def Login(request):
 def OlvidoContra(request):
     return render(request,'menu/HTML/OlvidoContra.html')
 
-def Servicios(request):
+def Servicio(request):
     return render(request,'menu/HTML/Servicios.html')
 
 #vistas administradores 

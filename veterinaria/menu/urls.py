@@ -1,10 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import Inicio,InicioLogueado,Nosotros,AgendaOnline,Contactos,Login,OlvidoContra,Servicio, crear_reserva, ingreso_contactos, ingreso_registrarse, inicioSesion,eliminarR,eliminarC, modificarcontraseña,paginalogin
+from .views import Inicio,Inicio_adm,InicioLogueado,Contacto_Clientes,Historial_Medico,Registro_paciente,Nosotros,AgendaOnline,Contactos,Login,OlvidoContra,Servicio, crear_reserva, ingreso_contactos, ingreso_registrarse, inicioSesion,eliminarR,eliminarC, modificarcontraseña,paginalogin,ingreso_mascota
 
 
 urlpatterns = [
     path('',Inicio,name="Inicio"),
+    path('Contacto_Clientes/',Contacto_Clientes,name="Contacto_Clientes"),
+    path('ingreso_mascota/',ingreso_mascota,name="ingreso_mascota"),
+    path('Inicio_adm/',Inicio_adm,name="Inicio_adm"),
+    path('Historial_Medico/',Historial_Medico,name="Historial_Medico"),
+    path('Registro_paciente/',Registro_paciente,name="Registro_paciente"),
     path('InicioLogueado/',InicioLogueado,name="InicioLogueado"),
     path('Nosotros/',Nosotros,name="Nosotros"),
     path('AgendaOnline/',AgendaOnline,name="AgendaOnline"),

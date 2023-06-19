@@ -18,7 +18,7 @@
   <div class="box">Registra a tu Paciente </div>
   <div class="container">
       <form action="{% url 'ingreso_mascota' %}" id="contact"  method="POST" enctype="multipart/form-data" >
-        {% crsf_token %}
+        {% csrf_token %}
         <h3>Registro Paciente</h3>
         <fieldset>
           <input placeholder="codigo chip mascota" type="text" tabindex="1" id="Codigo" name='Codigo' autofocus>
