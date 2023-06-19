@@ -25,14 +25,7 @@ urlpatterns = [
      path('paginalogin/', paginalogin, name="paginalogin"),
 
 
-    '''
-    path('modificar/<id>',modificar, name="modificar"),
-    path('paginalogin/',paginalogin, name="paginalogin"),
-    path('eliminar/ <id>', eliminar, name="eliminar"),
-    path('Historial_Medico1DatosM/', Historial_Medico1DatosM, name="Historial_Medico1DatosM"),
-    path('Historial_Medico2DatosD/', Historial_Medico2DatosD, name="Historial_Medico2DatosD"),
-    path('registroMascota/', registroMascota, name="registroMascota"),
-    '''
+
     #---------------------------------vistas de formularios
 
 ]

@@ -52,7 +52,7 @@ class Reserva(models.Model):
     edadMascota = models.CharField(max_length=20, null=True, blank=False, verbose_name='Edad de la mascota')
     Archivos = models.ImageField(upload_to='Reserva', verbose_name='Archivos')
     fechaReserva = models.DateField(auto_now=True, verbose_name='Fecha de la reservacion')
-    mensajeReserva = models.CharField(max_length='50', verbose_name='Mensaje de las reservaciones')
+    mensajeReserva = models.CharField(max_length=50, verbose_name='Mensaje de las reservaciones')
     
 
 #tabla funcional correcta

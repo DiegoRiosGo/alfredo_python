@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'veterinaria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:1521/orcl',
+        'NAME': '127.0.0.1:1521/orxcl',
         'USER': 'alfredo3',
         'PASSWORD':'clavealfredo3',
         'TEST':{

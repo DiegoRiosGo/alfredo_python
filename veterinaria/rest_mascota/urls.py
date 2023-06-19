@@ -1,9 +1,9 @@
-from rest_mascota.views import views
+from rest_mascota.views import lista_raza, detalle_contacto
 from django.urls import path
 
 urlpatterns = [
-    path('lista_contacto',views.lista_contacto, name='lista_contacto'),
-    path('detalle_contacto',views.detalle_contacto, name='detalle_contacto')
+    path('lista_raza',lista_raza, name='lista_raza'),
+    path('detalle_contacto',detalle_contacto, name='detalle_contacto')
 ]
 
 
