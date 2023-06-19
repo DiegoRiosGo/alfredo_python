@@ -17,149 +17,53 @@ class Servicios(models.Model):
 
     def __str__(self) -> str:
         return self.nombreServicio
-'''
-class Especialidad(models.Model):
-    idEspecialidad = models.AutoField(primary_key= True, verbose_name= 'Codigo de la especialidad')
-    nombreEspecialidad = models.CharField(max_length=35, null=True, blank=False, verbose_name='Nombre de la especialidad')
 
-    def __str__(self) -> str:
-        return self.nombreEspecialidad
-
-class Region(models.Model):
-    idRegion = models.IntegerField(primary_key=True, verbose_name='Codigo de la region')
-    nombreRegion = models.CharField(max_length=35, null=True, blank=False, verbose_name='Nombre de la region')
-
-    def __str__(self) -> str:
-        return self.nombreRegion
-
-class Comuna(models.Model):
-    idComuna = models.IntegerField(primary_key=True, verbose_name= 'Codigo de la comuna')
-    region = models.ForeignKey(Region, on_delete=models.DO_NOTHING)
-
-   
-
-class Rol(models.Model):
-    idRol = models.IntegerField(primary_key=True,  verbose_name='Codigo del rol de usuario')
-    nombreRol = models.CharField(max_length=45, null=True, blank=False, verbose_name='Nombre del rol de usuario')
-
-    def __str__(self) -> str:
-        return self.nombreRol
-
-class Preguntas(models.Model):
-    idPreguntas = models.IntegerField(primary_key=True,  verbose_name='Mensaje de consulta')
-    nombrePregunta = models.CharField(max_length=35, null=True, blank=False, verbose_name= 'Nombre de la persona que hace las preguntas')
-
-    def __str__(self) -> str:
-        return self.nombrePregunta
-'''
-
+#---vistas---
 class Usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True, verbose_name='Codigo de usuario')
-    rutUsuario = models.CharField(max_length=10, blank=False, null=True, verbose_name='Rut del usuario')
-    nombrecompletoUsuario = models.CharField(max_length=50, verbose_name='Nombre del usuario')
-    correoUsuario = models.EmailField(max_length= 45,verbose_name='Correo del usuario')
-    direccionUsuario = models.CharField(max_length= 50, verbose_name='Direccion del usuario')
-    fechanacUsuario = models.DateField(auto_now=True, verbose_name='Fecha de nacimiento del usuario')
-    idEspecialidad = models.ForeignKey(verbose_name='Especialidad', on_delete=models.DO_NOTHING)
-    nombreUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Nombre de inicio sesion del usuario')
+    nombrecompletoUsuario = models.CharField(max_length=50,  null=True, blank=False, verbose_name='Nombre del usuario')
+    correoUsuario = models.EmailField(max_length= 45, null=True, blank=False,verbose_name='Correo del usuario')
     claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Contraseña del usuario')
-    respuestaUsuario = models.CharField(max_length=50, null=True, blank=False, verbose_name='Respuesta al mensaje')
-    telefonoUsuario = models.IntegerField(null=True, blank=False, verbose_name='Telefono del usuario')
 
     def __str__(self) -> str:
-        return self.rutUsuario
-
+        return self.correoUsuario
+        
+#nose si funciona
 class Mascota(models.Model):
-    codigoChip = models.IntegerField(primary_key=True)
-    nombreMascota = models.CharField(max_length=50, verbose_name='Nombre de la mascota')
-    edadMascota = models.IntegerField(verbose_name= 'Edad de la mascota')
+    codigoChip = models.IntegerField(primary_key=True, verbose_name='Codigo chip mascota')
+    MascotaNombre = models.CharField(max_length=50, null=True, blank=False, verbose_name='Nombre de la mascota')
+    edadMascota = models.IntegerField(null=True, blank=False, verbose_name= 'Edad de la mascota')
     fechaNacimiento = models.DateField(auto_now=True, verbose_name= 'Fecha de nacimiento')
+    enfermedades = models.CharField(max_length=30,null=True, blank=False, verbose_name='Enfermedad de la mascota' )
     foto = models.ImageField(upload_to="mascotas")
     raza = models.ForeignKey(Raza,on_delete=models.DO_NOTHING)
-    idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
+    nombreDueno = models.CharField(max_length=50, null=True, blank=False, verbose_name='Nombre del dueno')
 
     def __str__(self) -> str:
-        return self.nombreMascota
+        return self.MascotaNombre
 
-class Consulta(models.Model):
-    idConsulta = models.AutoField(primary_key=True, verbose_name='Codigo de la consulta')
-    idMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING)
-    idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
-
-
-class Detalle(models.Model):
-    idDetalle = models.AutoField(primary_key=True, verbose_name='Codigo del detalle')
-
-
-class Mensaje(models.Model):
-    idMensaje = models.AutoField(primary_key=True, verbose_name='Codigo del mensaje')
-    asuntoMensaje = models.CharField(max_length=10, null=True, blank=False, verbose_name='Asunto del mensaje')
-    descripcionMensaje = models.CharField(max_length=10, null=True, blank=False, verbose_name='Descripcion del mensaje')
-    idUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
-    fechaenvioMensaje = models.DateField(auto_now=True, verbose_name='Fecha de envio de los mensajes')
-    fechalecturaMensaje = models.DateField(auto_now=True, verbose_name='Fecha de la lectura de los mensajes')
-    statusMensaje = models.CharField(max_length=10, null=True, blank=False, verbose_name='Status del mensaje')
-
-    def __str__(self) -> str:
-        return self.asuntoMensaje
-
-class Respuesta(models.Model):
-    idRespuesta = models.AutoField(primary_key=True, verbose_name='Codigo de la respuesta')
-    descripcionRespuesta = models.CharField(max_length=50, null=True, blank=False, verbose_name='Descripcion de la respuesta de los mensajes')
-    idMensaje = models.ForeignKey(Mensaje, on_delete=models.DO_NOTHING)
-    statusRespuesta = models.CharField(max_length=10, null=True, blank=False, verbose_name='Status de la respuesta de los mensajes')
-
-    def __str__(self) -> str:
-        return self.descripcionRespuesta
-
-
-#-------------VISTAS-------------->
-
+#tabla funcional correcta
 class Reserva(models.Model):
-    nombreUsuario = models.CharField(primary_key=True, max_length=30, verbose_name='Nombre del usuario' )
-    correoUsuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, verbose_name='Correo del usuario')
-    tipoReserva = models.CharField(max_length=30,verbose_name='Tipo de reserva')
-    nombreMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='nombre de la mascota')
-    edadMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Edad de la mascota')
+    idReserva = models.AutoField(primary_key=True,  verbose_name='Codigo de reserva')
+    nombreUsuario = models.CharField( max_length=30,null=True, blank=False, verbose_name='Nombre del usuario' )
+    correoUsuario = models.EmailField(max_length=50, null=True, blank=False, verbose_name='Correo del usuario')
+    tipoReserva = models.ForeignKey(Servicios,on_delete=models.DO_NOTHING,verbose_name='Tipo de reserva')
+    nombreMascota = models.CharField(max_length=20, null=True, blank=False, verbose_name='nombre de la mascota')
+    edadMascota = models.CharField(max_length=20, null=True, blank=False, verbose_name='Edad de la mascota')
     Archivos = models.ImageField(upload_to='Reserva', verbose_name='Archivos')
     fechaReserva = models.DateField(auto_now=True, verbose_name='Fecha de la reservacion')
     mensajeReserva = models.CharField(max_length='50', verbose_name='Mensaje de las reservaciones')
     
 
-
+#tabla funcional correcta
 class Contacto(models.Model):
-    NombreContacto = models.CharField(primary_key=True, max_length=30, verbose_name='Nombre del contacto')
+    idContacto = models.AutoField(primary_key=True, verbose_name='Codigo de contact')
+    NombreContacto = models.CharField( max_length=30, null=True, blank=False,verbose_name='Nombre del contacto')
     correoContacto = models.EmailField(max_length=30, null=True, blank=False, verbose_name='Correo del contacto')
     TelefonoContacto = models.IntegerField(null=True, blank=False, verbose_name='Telefono de contacto')
-    nombreMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de la mascota')
+    nombreMascota = models.CharField(max_length=30, null=True, blank=False,verbose_name='Nombre de la mascota')
     mensajeContacto = models.CharField(max_length=50, null=True, blank=False, verbose_name='Mensaje del contacto')
 
-
-class Registarse(models.Model):
-    NombreRegistrarse = models.CharField(primary_key=True, max_length=30, verbose_name='Nombre del usuario')
-    CorreoRegistrarse = models.EmailField(max_length=30, verbose_name='Correo de registro')
-    claveRegistrarse = models.CharField(max_length=10, verbose_name='Clave de registro')
-    ClavenuevaRegistrarse = models.CharField(max_length=10, verbose_name='La nueva clave de usuario')
-
-
-class iniciosesion(models.Model):
-    correoInicio = models.EmailField(primary_key=True, verbose_name='Correo del usuario')
-    claveInicio = models.CharField(max_length=10, verbose_name='Clave del correo del usuario')
-
-
-class olvidarContra(models.Model):
-    correoOlvida = models.CharField(primary_key=True, max_length=10, verbose_name='Correo de recuperacion')
-    contraolvida = models.CharField(max_length=10, verbose_name='Contraseña olvidada')
-
-
-class olvidacontra1(models.Model):
-    correoOlvida = models.ForeignKey(olvidarContra, on_delete=models.DO_NOTHING, verbose_name='Correo de recuperacion')
-    contraolvida = models.ForeignKey(olvidarContra, on_delete=models.DO_NOTHING, verbose_name='Contraseña olvidada')
-    contranuevaolvida = models.CharField(max_length=10, verbose_name='Nueva Contraseña')
-
-class Registro(models.Model):
-    nombreDueño = models.CharField(primary_key= True, max_length=50, verbose_name='Nombre del dueño de la mascota')
-    nombreMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de la mascota')
-    raza = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Raza de la mascota')
-    Enfermedades = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Nombre de enfermedad')
-    edadMascota = models.ForeignKey(Mascota, on_delete=models.DO_NOTHING, verbose_name='Edad de la mascota')
+class Respuesta(models.Model):
+    idRespuestas = models.AutoField(primary_key=True, verbose_name='Id Repsuesta')
+    contenidoRespuesta = models.CharField(max_length=50, null=True, blank=False, verbose_name='Contendio de la respuesta')

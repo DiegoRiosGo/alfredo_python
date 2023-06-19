@@ -1,19 +1,24 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.db import models
 from django.shortcuts import render, redirect
-from .models import Reserva, Contacto, Registarse, iniciosesion,Registro,Usuario,Mascota
+from .models import Raza,Servicios,Usuario,Mascota,Reserva,Contacto,Respuesta
 from django.contrib import messages
 
 
 # Create your views here.
+# vista clientes
 def Inicio(request):
     return render(request,'menu/HTML/Inicio.html')
 
 def Nosotros(request):
     return render(request,'menu/HTML/Nosotros.html')
-#-----------------
+
 def AgendaOnline(request):
-    return render(request,'menu/HTML/AgendaOnline.html')
+    datos = Servicios.objects.all()
+    contexto = {
+        "servicios":datos
+    }
+    return render(request,'menu/HTML/AgendaOnline.html',contexto)
 
 def Contacto(request):
     return render(request,'menu/HTML/Contacto.html')
@@ -26,179 +31,132 @@ def OlvidoContra(request):
 
 def Servicios(request):
     return render(request,'menu/HTML/Servicios.html')
-    
 
-
-
-
-def crear_reserva(request):
-    Nombre = request.post("username"),
-    Email = request.post("email"),
-    Tipo_Reserva = request.post("tipo"),
-    Consulta = request.post("opt_Consulta"),
-    Examen = request.post ("opt_Exame"),
-    InterConsulta = request.post("opt_Inter"),
-    Cirugias = request.post("opt_Cirugias"),
-    Archivo = request.post("file"),
-    Fecha_Reserva = request.post("arrive"),
-    Mensaje = request.post("textarea2")
-
-    Reserva.objects.create("nombre= Nombre", "email= Email", "tipo_reserva= Tipo_Reserva", "consulta = Consulta", "examen = Examen", "opt_inter = InterConsulta" , "opt_cirugia = Cirugias", "archivo = Archivo",
-                               "fecha_reserva = Fecha_Reserva", "mensaje = Mensaje")
-    
-
-    return redirect('AgendaOnline')
-
-
-
-def ingreso_contactos(request):
-    Nombre_Contacto = request.post("nombre_contacto"),
-    Correo = request.post("correo_contacto"),
-    Numero = request.post("nro_contacto"),
-    NombreMascota = request.post("nombre_m_contacto"),
-    Mensaje_Contacto= request.post("msg_contacto")
-
-    Contacto.objects.create("nombre_contacto = Nombre_Contacto", "correo = Correo","numero_contacto = Numero","nombre_mascota = NombreMascota" ,
-                                "mensaje_contacto = Mensaje_Contacto")
-    
-    return redirect('Contacto')
-
-def ingreso_registrarse(request):
-    Nombre_Completo = request.post("nombre"),
-    Correo_Login = request.post ("correo"),
-    Password = request.post ("contraseña"),
-    Repetir_Contraseña = request.post("contraseña_nueva")
-
-    Registarse.objects.create("nombre_completo = Nombre_Completo", "correo = Correo_Login","password = Password",
-                                           "repetircontraseña = Repetir_Contraseña")
-    
-    return redirect('Login')
-
-
-def inicioSesion(request):
-    Correo_Login = request.post("correolog"),
-    Contraseña_Login = request.post("contralog")
-
-    iniciosesion.objects.create("correologin = Correo_Login", "contraseñalogin = Contraseña_Login")
-
-    return redirect('Inicio')
-
-
-def olvidarContra(request):
-    Correo_Olvida = request.post("correoOlvida0"),
-    Contraseña_Olvida = request.post("contraseña0"),
-    Contra_Nueva_Olvida = request.post("contranueva0")
-
-    
-
-    return redirect('login')
-
-def olvidarContra1(request):
-    Correo_Olvida = request.post("correoOlvida"),
-    Contraseña_Olvida = request.post("contraOlvida"),
-    Contra_Nueva_Olvida = request.post("contraNueva")
-
-   
-
-    return redirect('login')
-
-
-def modificar(request,id):
-
-    Reservaf = Reserva.objects.get(nombreUsuario = id)
-
-
-    contexto = {
-        "form-agenda":Reservaf
-
+#vistas administradores 
+def Contacto_Clientes(request):
+    listaC = Contacto.objects.all()
+    contexto={
+        "contactos": listaC
     }
-
-    return render(request, 'menu/HTML/AgendaOnline.html',contexto)
-
-
-def eliminar(request,id):
-    Reservaf = Reserva.objects.get(nombreUsuario = id)
-
-    Reservaf.delete
-
-    return redirect('reserva-form')
-
-
-
-
-
-
-
-# --------------------------------------------------------------Create your views here (Vistas de Veterinario)-----------------------------------------------
-def Contacto_cliente(request):
-    return render(request,'menu/ADMINISTRADOR/Contacto_Cliente.html')
+    return render(request,'menu/ADMINISTRADOR/Contacto_Cliente.html',contexto)
 
 def Historial_Medico(request):
-    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html')
-
-def Inicio_adm(request):
-    return render(request,'menu/ADMINISTRADOR/Inicio_adm.html')
-
-def Login_adm(request):
-    return render(request,'menu/ADMINISTRADOR/Login_adm.html')
+    listaMascota = Mascota.objects.all()
+    contexto={
+        "mascotas": listaMascota
+    }
+    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
 
 def Inicio_adm(request):
     return render(request,'menu/ADMINISTRADOR/Inicio_adm.html')
 
 def Registro_paciente(request):
-    return render(request,'menu/ADMINISTRADOR/Registro_paciente.html')
+    datos = Raza.objects.all()
+    contexto = {
+        "razas":datos
+    }
+    return render(request,'menu/ADMINISTRADOR/Registro_paciente.html',contexto)    
 
 def RevisarCitas(request):
-    return render(request,'menu/ADMINISTRADOR/RevisarCitas.html')
-
-# -------------------------------------------------                ---------------------------------------------------------------------------
-
-
-def Historial_Medico1DatosM(request):
-    Historial_Medico2DatosM = Mascota.objects.all()
+    listaR = Reserva.objects.all()
     contexto={
-        "mascotas": Historial_Medico2DatosM
+        "reservas": listaR
     }
-    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
+    return render(request,'menu/ADMINISTRADOR/RevisarCitas.html',contexto)
 
-def Historial_Medico2DatosD(request):
-    Historial_Medico2DatosD = Usuario.objects.all()
-    contexto={
-        "nombreD": Historial_Medico2DatosD
+
+#---fin html
+
+#funcional  1
+def crear_reserva(request):
+    Nombre = request.post['username'],
+    Email = request.post['email'],
+    Tipo_Reserva = request.post['tipo'],
+    mascotaM = request.post['Nombre_Mas'],
+    mascotaE = request.post['edad_mas'],
+    Archivo = request.FILES['archivoS'],
+    Fecha_Reserva = request.post['reservaF'],
+    Mensaje = request.post['mensajeC'],
+
+    registroServicio = Servicios.objects.get(idServicio = Tipo_Reserva)
+    Reserva.objects.create(nombreUsuario= Nombre, correoUsuario= Email, tipoReserva= registroServicio, nombreMascota=mascotaM,
+                            edadMascota= mascotaE,Archivos = Archivo,fechaReserva = Fecha_Reserva, mensajeReserva = Mensaje)
+    
+    return redirect('AgendaOnline')
+
+#eliminar reserva funcional
+def eliminarR(request,id):
+    reserva=Reserva.objects.get(idReserva=id)
+    reserva.delete()
+
+    return redirect('RevisarCitas')
+
+#funcional
+def ingreso_contactos(request):
+    Nombre_Contacto = request.post['nombre_contacto'],
+    Correo = request.post['correo_contacto'],
+    Numero = request.post['nro_contacto'],
+    NombreMascota = request.post['nombre_m_contacto'],
+    Mensaje_Contacto= request.post['msg_contacto']
+
+    Contacto.objects.create(NombreContacto = Nombre_Contacto, correoContacto = Correo,TelefonoContacto = Numero,nombreMascota = NombreMascota ,
+                                mensajeContacto = Mensaje_Contacto)
+    
+    return redirect('Contacto')
+
+def eliminarC(request,id):
+    contactos=Contacto.objects.get(idContacto=id)
+    contactos.delete()
+
+    return redirect('Contacto_Clientes')
+
+#respuesta del contacto
+def Respuestas(request):
+    respuesta = request.post['contRespuesta']
+
+    Respuesta.objects.create(contenidoRespuesta = respuesta)
+
+    #crear html con respuesta 
+    return redirect('Respuestas')
+
+def ingreso_mascota(request):
+    codigoM = request.post['Codigo']
+    nombreM = request.post['nombre_mascota'],
+    edadM = request.post['Edad'],
+    fechaM = request.post['Fecha'],
+    enfermedadM = request.post['enfermedades'],
+    archivoM= request.FILES['archivo_mascota']
+    razaM= request.post['raza']
+    nombreD= request.post['dueno']
+
+    registroRaza = Raza.objects.get(codigoRaza = razaM)
+    Mascota.objects.create(codigoChip = codigoM, MascotaNombre = nombreM, edadMascota = edadM, fechaNacimiento = fechaM ,
+                                enfermedades = enfermedadM, foto = archivoM, raza = registroRaza, nombreDueno = nombreD)
+    
+    return redirect('Contacto')
+
+def eliminarM(request,id):
+    mascota=Mascota.objects.get(codigoChip=id)
+    mascota.delete()
+
+    return redirect('Historial_Medico')
+
+
+def ingreso_registrarse(request):
+    Nombre_Completo = request.post['nombre'],
+    Correo_Login = request.post ['correo'],
+    Password = request.post ['contraseña'],
+
+    Usuario.objects.create(nombrecompletoUsuario = Nombre_Completo, correoUsuario = Correo_Login,claveUsuario = Password)
+    
+    return redirect('Login')
+
+
+#para mas rato
+def inicioSesion(request,id):
+    inicio=Usuario.objects.get(idUsuario=id)
+
+    contexto = {
+        'datos':inicio
     }
-    return render(request,'menu/ADMINISTRADOR/Historial_Medico.html',contexto)
-
-
-
-
-
-
-
-#------------------------------PAGINALOGIN--------------------------
-
-def paginalogin (request):
-    if request.method=='POST':
-        try:
-            datosUsuario=iniciosesion.objects.get(correoInicio=request.POST['correoInicio'],contra=request.POST['claveInicio'])
-            print("Usuario=",datosUsuario)
-            if(datosUsuario.correoInicio=="admin@vetjuanita.cl"):
-                return redirect('Inicio')
-        except iniciosesion.DoesNotExist as e:
-            messages.success(request,'¡Correo o Contraseña no correcto!')
-
-    return render(request, 'Login.html')
-
-
-
-#------------------------------------REGISTRO MASCOTA------------------------------------------
-
-
-def registroMascota(request):
-    Nombre_mascota= request.post("Pet_Name"),
-    Raza_Mascota = request.post("Pet_Breed"),
-    nombreDueño = request.post("Owner_Name"),
-    Enfermedades_registro = request.post("Diseases")
-    Edad_mascota = request.post("Pet_Years")
-
-#nombre_mascota1 Posible nombre de variable
-    Registro.objects.create(nombre_mascota1 = Nombre_mascota, raza_mascota = Raza_Mascota, nombre_dueño1 = nombreDueño, enfermedades1 = Enfermedades_registro, años_mascota1 = Edad_mascota)
+    return render('Inicio',contexto)
