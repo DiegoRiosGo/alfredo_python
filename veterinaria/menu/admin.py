@@ -8,4 +8,6 @@ admin.site.register(Servicios)
 admin.site.register(Usuario)
 admin.site.register(Mascota)
 admin.site.register(Respuesta)
+admin.site.register(Contacto)
+admin.site.register(Reserva)
 

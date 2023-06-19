@@ -1,6 +1,7 @@
 {% extends 'menu/HTML/Plantilla.html' %}
 
-    {% load static %}
+{% load static %}
+
 
     {% block titulo %}     
       <title>Inicia Sesión</title>
@@ -21,21 +22,21 @@
 
 <!--VALIDACIONES JS CREAR CUENTA-->
 
-      <form action="{% url 'ingreso_registrarse'%}" id='formulario' method="POST" enctype="multipart/form-data">
-        {% crsf_token %}
+      <form action="{% url 'ingreso_registrarse' %}" id='formulario' method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <h1>Crear una cuenta</h1>
         <div class="social-container">
 
         </div>
         <div>
           <!--Registrarse-->
-          <input type="text" placeholder="Nombre Completo" id="nombre" />
-          <input type="email" placeholder="Correo electrónico" id="correo" />
-          <input type="password" placeholder="Contraseña" id="contraseña" />
-          <input type="password" placeholder="Ingresa nuevamente tu contraseña" id="contraseña_nueva" />
+          <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" required/>
+          <input type="email" placeholder="Correo electrónico" id="correo" name="correo"required />
+          <input type="password" placeholder="Contraseña" id="contraseña" name="contraseña" required/>
+          <input type="password" placeholder="Ingresa nuevamente tu contraseña" id="contraseña_nueva" name="contraseña_nueva" required/>
         </div>
         <!--  JavaScript -->
-        <button type="submit" onclick='return enviarformulario();' values="enviar">Registrar</button>
+        <input type="submit" value="enviar">
         <div id="error"></div>
       </form>
 
@@ -43,17 +44,18 @@
     </div>
 <!--VALIDACION JS INICIAR SESION-->
     <div class="form-container sign-in-container">
-      <form action="#" method="POST" enctype="multipart/form-data">
+      <form action="{% url 'paginalogin' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <h1>Iniciar sesión</h1>
         <div class="social-container">
         <!--para inicio de sesion se necesita vista solamente-->
         </div>
         <!--InicioSesion-->
-        <input type="email" placeholder="Correo electrónico" id="correolog" />
-        <input type="password" placeholder="Contraseña" id="contralog" />
+        <input type="email" placeholder="Correo electrónico" id="correolog" name="correolog" required/>
+        <input type="password" placeholder="Contraseña" id="contralog" name="contralog" required/>
         <a href="{% url 'OlvidoContra' %}">¿Se te olvidó tu contraseña?</a>
         <!--JavaScript-->
-        <button type="submit" onclick='return enviaformlog();' values="enviar">Iniciar sesión</button>
+        <input type="submit" value="enviar">
         <div id="errorlog"></div>
       </form>
     </div>
@@ -63,7 +65,14 @@
           <h1>¡Bienvenido de nuevo!</h1>
           <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
           <button class="ghost" id="signIn">Inciar sesión</button>
+
         </div>
+        {% if messages %}
+        {% for msg in messages %}
+        <b>{{msg}}</b>
+        {% endfor %}
+    {% endif %}
+        
         <div class="overlay-panel overlay-right">
           <h1>¡Hola, amigo!</h1>
           <p>Ingresa tus datos personales </p>

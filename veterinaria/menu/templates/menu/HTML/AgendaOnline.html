@@ -27,7 +27,7 @@
     <!-- / START Form -->
     <div class='form'>
       <form action="{% url 'crear_reserva' %}" method="POST" enctype="multipart/form-data" id="form-agenda">
-        {% crsf_token %}
+        {% csrf_token %}
         <div class='field'>
           <label for='username'>Nombre completo</label>
           <input id='username' name='username' type='text' placeholder="Ingresa tu Nombre completo">
@@ -92,7 +92,7 @@
 
           </label>
         </div>
-        <button type="button" id="consulta" onclick="return enviarformulario_agenda();" values="enviar">Enviar</button>
+       <center> <input type="submit" id="consulta" value="enviar" style="border: 50px; background-color: aquamarine; " size="40px" ></center>
         <div id="error"></div>
       </form>
     </div>

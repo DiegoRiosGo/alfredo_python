@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'menu',
     'rest_framework',
     'rest_mascota',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'veterinaria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:1521/orxcl',
+        'NAME': '127.0.0.1:1521/xe',
         'USER': 'alfredo3',
         'PASSWORD':'clavealfredo3',
         'TEST':{

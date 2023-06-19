@@ -20,9 +20,9 @@ class Servicios(models.Model):
 
 #---vistas---
 class Usuario(models.Model):
-    idUsuario = models.AutoField(primary_key=True, verbose_name='Codigo de usuario')
-    nombrecompletoUsuario = models.CharField(max_length=50,  null=True, blank=False, verbose_name='Nombre del usuario')
-    correoUsuario = models.EmailField(max_length= 45, null=True, blank=False,verbose_name='Correo del usuario')
+    idUsuario = models.AutoField(primary_key=True, verbose_name='Codigo de usuario', blank=False,null=False)
+    nombrecompletoUsuario = models.CharField(max_length=50,  null=True, blank=False, verbose_name='Nombre del usuario' )
+    correoUsuario = models.EmailField(max_length= 45, null=True, blank=False,verbose_name='Correo del usuario' )
     claveUsuario = models.CharField(max_length=20, null=True, blank=False, verbose_name='Contraseña del usuario')
 
     def __str__(self) -> str:

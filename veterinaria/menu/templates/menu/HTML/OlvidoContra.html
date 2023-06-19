@@ -17,8 +17,8 @@
 
         <div class="container" id="container">
             <div class="form-container sign-up-container" id="form">
-                <form action="#" class="formulario" id="formulario" method="POST" enctype="multipart/form-data">
-                    {% crsf_token %}
+                <form action="{% url 'Login' %}" class="formulario" id="formulario" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="social-container">
 
                     </div>
@@ -32,19 +32,18 @@
             </div>
 
             <div class="form-container sign-in-container">
-                <form action="olvidarContra1" enctype="multipart/form-data" method="POST">
-                    {% crsf_token %}
+                <form action="{% url 'Login' %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
                     <h1>¿Olvidaste tu contraseña?</h1>
                     <div class="social-container">
 
                     </div>
 
-                    <input type="email" placeholder="Correo electrónico"  id="correoOlvida" id="correoOlvida"/>
-                    <input type="password" placeholder=" Ingresa tu nueva contraseña" id="contraOlvida" />
-                    <input type="password" placeholder=" Ingresa nuevamente la contraseña" id="contraNueva"/>
+                    <input type="email" placeholder="Correo electrónico"  id="correoOlvida" id="correoOlvida" required/>
+                    <input type="password" placeholder=" Ingresa tu nueva contraseña" id="contraOlvida" required />
+                    <input type="password" placeholder=" Ingresa nuevamente la contraseña" id="contraNueva" required/>
                     <a href="{% url 'Login' %}">Volver a inicio de sesión</a>
-                    <button type="submit" onclick="return enviaformolvida();" values="enviar">Restablecer Contraseña</button>
-                    <div id="errorOlvida"></div>
+                    <input type="submit"  values="enviar">
                 </form>
             </div>
             <div class="overlay-container">

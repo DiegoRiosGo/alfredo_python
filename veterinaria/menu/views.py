@@ -25,7 +25,7 @@ def AgendaOnline(request):
     }
     return render(request,'menu/HTML/AgendaOnline.html',contexto)
 
-def Contacto(request):
+def Contactos(request):
     return render(request,'menu/HTML/Contacto.html')
 
 def Login(request):
@@ -98,16 +98,16 @@ def eliminarR(request,id):
 
 #funcional
 def ingreso_contactos(request):
-    Nombre_Contacto = request.post['nombre_contacto'],
-    Correo = request.post['correo_contacto'],
-    Numero = request.post['nro_contacto'],
-    NombreMascota = request.post['nombre_m_contacto'],
-    Mensaje_Contacto= request.post['msg_contacto']
+    Nombre_Contacto = request.POST['nombre_contacto']
+    Correo = request.POST['correo_contacto']
+    Numero = request.POST['nro_contacto']
+    NombreMascota = request.POST['nombre_m_contacto']
+    Mensaje_Contacto= request.POST['msg_contacto']
 
-    Contacto.objects.create(NombreContacto = Nombre_Contacto, correoContacto = Correo,TelefonoContacto = Numero,nombreMascota = NombreMascota ,
+    Contacto.objects.create (NombreContacto = Nombre_Contacto, correoContacto = Correo,TelefonoContacto = Numero,nombreMascota = NombreMascota ,
                                 mensajeContacto = Mensaje_Contacto)
     
-    return redirect('Contacto')
+    return redirect('Contactos')
 
 def eliminarC(request,id):
     contactos=Contacto.objects.get(idContacto=id)
@@ -148,13 +148,13 @@ def eliminarM(request,id):
 
 
 def ingreso_registrarse(request):
-    Nombre_Completo = request.post['nombre'],
-    Correo_Login = request.post ['correo'],
-    Password = request.post ['contraseña'],
+    Nombre_Completo = request.POST['nombre']
+    Correo_Login = request.POST ['correo']
+    Password = request.POST ['contraseña']
 
-    Usuario.objects.create(nombrecompletoUsuario = Nombre_Completo, correoUsuario = Correo_Login,claveUsuario = Password)
+    Usuario.objects.create(nombrecompletoUsuario = Nombre_Completo, correoUsuario = Correo_Login , claveUsuario = Password)
     
-    return redirect('Login')
+    return redirect('Inicio')
 
 
 #para mas rato
@@ -190,7 +190,7 @@ def modificarcontraseña(request,id):
 def paginalogin (request):
     if request.method=='POST':
         try:
-            datosUsuario=Usuario.objects.get(CorreoRegistrarse=request.POST['correoUsuario'],contra=request.POST['claveUsuario'])
+            datosUsuario=Usuario.objects.get(correoUsuario=request.POST['correolog'],claveUsuario=request.POST['contralog'])
             print("Usuario=",datosUsuario)
             if(datosUsuario.correoUsuario=="admin@vetjuanita.cl"):
                 return redirect('Inicio_adm')
@@ -199,4 +199,4 @@ def paginalogin (request):
         except Usuario.DoesNotExist as e:
             messages.success(request,'¡Correo o Contraseña no correcto!')
 
-    return render(request, 'Login.html')
+    return render(request, 'Login')
