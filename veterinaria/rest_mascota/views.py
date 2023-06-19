@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from menu.models import Contacto, Raza
-from .serializers import ContactoSerializers, RazaSerializers
+from .serializers import ContactoSerializer, RazaSerializer
+
 # Create your views here.
 
 @csrf_exempt
@@ -13,12 +14,12 @@ from .serializers import ContactoSerializers, RazaSerializers
 def lista_raza(request):
     if request.method == 'GET':
        raza=Raza.objecs.all()
-       serializer=RazaSerializers(Raza,many=True)
+       serializer=RazaSerializer(Raza,many=True)
        return Response(serializer.data)
 
     elif request.method == 'POST':
        data = JSONParser().parse(request)
-       serializer=RazaSerializers(data=data)
+       serializer=RazaSerializer(data=data)
        if serializer.is_valid():
            serializer.save()
            return Response(serializer.data,status=status.HTTP_201_CREATED)
@@ -34,11 +35,11 @@ def detalle_contacto(Request,id):
       return Response(status=status.http_404_not_found)
 
   if Request.method=='get':
-      serializer=ContactoSerializers(Contacto)
+      serializer=ContactoSerializer(Contacto)
       return Response(serializer.data)
   if Request.method=='put':
       data=JSONParser().parse(Request)
-      serializer=ContactoSerializers(Contacto,data=data)
+      serializer=ContactoSerializer(Contacto,data=data)
       if serializer.is_valid():
           serializer.save()
           return Response(serializer.data)
