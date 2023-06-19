@@ -4,11 +4,16 @@ from django.shortcuts import render, redirect
 from .models import Raza,Servicios,Usuario,Mascota,Reserva,Contacto,Respuesta
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 # vista clientes
 def Inicio(request):
     return render(request,'menu/HTML/Inicio.html')
+
+def InicioLogueado(request):
+    return render(request,'menu/HTML/InicioLogueado.html')
 
 def Nosotros(request):
     return render(request,'menu/HTML/Nosotros.html')
@@ -160,3 +165,38 @@ def inicioSesion(request,id):
         'datos':inicio
     }
     return render('Inicio',contexto)
+
+
+
+@login_required
+
+def modificarcontraseña(request,id):
+
+    correo = request.POST['correoUsuario']
+    contra = request.POST['claveUsuario']
+
+    r_original = Usuario.objects.get(idUsuario= id) #el registro original
+    #comienzo a reemplazar los valores en ese registro original
+    r_original.correoUsuario = correo
+    r_original.correoUsuario = contra
+
+    r_original.save() #update
+    return redirect('Login')
+
+
+
+
+
+def paginalogin (request):
+    if request.method=='POST':
+        try:
+            datosUsuario=Usuario.objects.get(CorreoRegistrarse=request.POST['correoUsuario'],contra=request.POST['claveUsuario'])
+            print("Usuario=",datosUsuario)
+            if(datosUsuario.correoUsuario=="admin@vetjuanita.cl"):
+                return redirect('Inicio_adm')
+            else:
+                return redirect('InicioLogueado')
+        except Usuario.DoesNotExist as e:
+            messages.success(request,'¡Correo o Contraseña no correcto!')
+
+    return render(request, 'Login.html')

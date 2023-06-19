@@ -1,0 +1,58 @@
+{% extends 'menu/HTML/Plantilla.html' %}
+
+    {% load static %}
+
+    {% block titulo %}     
+    <title>INICIO</title>
+    {% endblock titulo %}
+
+    {% block estilos %}
+    <link rel="stylesheet" href="{% static 'menu/css/estiloINICIO.css' %}">
+    {% endblock estilos %}
+    
+    
+
+      
+      {% block cuerpo %}
+    
+
+
+      
+<section class="hero-image">
+<div class="carousuel">
+ <div class="carousel__item pic__one">
+  <div class="carousel__content">  
+    <h1>Agenda, tu hora para tu mascota </h1>
+    <p>Brindamos una atención veterinaria, moderna, profesional para sus mascotas. Nuestro objetivo es hacer que su mascota se
+    sienta a gusto en nuestras clínicas, con un enfoque atento y amable.</p>
+   <a href="{% url 'AgendaOnline' %}"> <button class="custom-btn btn-3"><span>Agenda Online</span></button></a>
+   </div>
+  </div>
+  
+
+ <div class="carousel__item pic__two">
+  <div class="carousel__content">
+  <h1>Conoce Nuestros Servicios </h1>
+  <p>Contamos con un equipo experto que cuidará la salud de tu mascota. Estamos preparados para atender a tu mascota.</p>
+  <a href="{% url 'Servicios' %}"><button class="custom-btn btn-3"><span>Consulta Aqui</span></button></a>
+ </div>
+</div>
+
+ <div class="carousel__item pic__three">
+  <div class="carousel__content">
+  <h1>Visita  y Conoce más Sobre Nosotros </h1>
+  <p>Encontrarás infomación sobre Nuestra experiencia</p>
+  <a href="{% url 'Nosotros' %}"><button class="custom-btn btn-3"><span>Informate Aqui</span></button></a>
+ </div>
+ </div>
+
+<a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a  class="next" onclick=plusSlides(1)>&#10095;</a>
+
+</div>
+</section>
+<script src="{% static 'menu/JAVA/java.js' %}"></script>
+<h2 class="titulo-final">&copy; Veterinaria Juanita</h2>
+
+
+{% endblock cuerpo %}

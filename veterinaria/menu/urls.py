@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import Inicio,Nosotros,AgendaOnline,Contacto,Login,OlvidoContra,Servicios, crear_reserva, ingreso_contactos, 
-ingreso_registrarse, inicioSesion,olvidarContra,olvidarContra1,eliminarR,eliminarC
+from .views import Inicio,InicioLogueado,Nosotros,AgendaOnline,Contacto,Login,OlvidoContra,Servicios, crear_reserva, ingreso_contactos, ingreso_registrarse, inicioSesion,eliminarR,eliminarC, modificarcontraseña,paginalogin
 
 
 urlpatterns = [
-    path('',Inicio,name="Inicio"),
+    path('Inicio/',Inicio,name="Inicio"),
+    path('InicioLogueado/',InicioLogueado,name="InicioLogueado"),
     path('Nosotros/',Nosotros,name="Nosotros"),
     path('AgendaOnline/',AgendaOnline,name="AgendaOnline"),
     path('Contacto/',Contacto,name="Contacto"),
@@ -20,8 +20,10 @@ urlpatterns = [
     path('ingreso_registrarse/',ingreso_registrarse, name="ingreso_registrarse"),
 
     path('inicioSesion/', inicioSesion, name="login"),
-    path('olvidarContra/',olvidarContra, name="OlvidoContra"),
-    path('olvidarContra1/',olvidarContra1, name="olvidaste contraseña"),
+    
+    path('modificarcontraseña/', modificarcontraseña, name="modificarcontraseña"),
+     path('paginalogin/', paginalogin, name="paginalogin"),
+
 
     '''
     path('modificar/<id>',modificar, name="modificar"),
