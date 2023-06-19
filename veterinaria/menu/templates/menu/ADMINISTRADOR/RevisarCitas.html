@@ -10,11 +10,50 @@
   <link rel="stylesheet" href="{%static 'menu/css_administrador/estiloREGISTRO.css' %}">
     {% endblock estilos %}
     
+    {% block cuerpo %}
+
+    <table border="1">
+      <tr>
+          <th>nombreUsuario</th>
+          <th>correoUsuario</th>
+          <th>tipoReserva</th>
+          <th>nombreMascota</th>
+          <th>edadMascota</th>
+          <th>Archivos</th>
+          <th>fechaReserva</th>
+          <th>mensajeReserva</th>
+          <th>Acciones</th>
+      </tr>
+
+      {% for m in reservas %}
+      <tr>
+          <td>{{m.nombreUsuario}}</td>
+          <td>{{m.correoUsuario}}</td>
+          <td>{{m.tipoReserva}}</td>
+          <td>{{m.nombreMascota}}</td>
+          <td>{{m.edadMascota}}</td>
+          <td>
+
+            <img src="{{m.Archivos.url}}" alt="No foto">
+
+          </td>
+          <td>{{m.fechaReserva}}</td>
+          <td>{{m.mensajeReserva}}</td>
+          <td>
+              <a href="{% url 'eliminarR' m.idReserva %}" class="btn btn-danger">Eliminar</a>
+          </td>
+
+      </tr>
+      {% endfor %}
+
+  </table>
+
+  <!--
   <form action="" id="reserva-form">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <select name="form-control" name="reserva" id="reserva">
-        {%for i in Reserva%}
+        {%for i in reservas%}
         {%if i.correoUsuario == datos.Reserva.correoUsuario%}
         <option value="{{i.correoUsuario}}" selected>{{i.nombreUsuario}}</option>
         {%else%}
@@ -32,10 +71,6 @@
 
   </form>
 
-
+-->
       
-      {% block cuerpo %}
-
-    
-</body>
-</html>
+      {% endblock cuerpo %}

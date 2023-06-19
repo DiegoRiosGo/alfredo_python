@@ -17,78 +17,39 @@
   <br>
   <div class="box"> Historial Médico</div> <br>
   <td>
-    {% for m in mascotas %}
-             {% for m in nombreD %}
-               <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td> {{m.nombrecompletoUsuario}} </td>
-               <td> {{m.nombreMascota}}</td>
-               <td>Ninguna</td>
-               <td>Resfriado</td>
-               <td>4</td>
-               <td>3204</td>
-               <td>{{m.edadMascota}}</td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             
-             <tr>
-               <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td>{{m.nombrecompletoUsuario}}</td>
-               <td>{{m.nombreMascota}}</td>
-               <td>Moquillo</td>
-               <td>Demartitis</td>
-               <td>11 </td>
-               <td>120</td>
-               <td>{{m.edadMascota}} </td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             <tr>
-               
-              <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td>{{m.nombrecompletoUsuario}}</td>
-               <td>{{m.nombreMascota}}</td>
-               <td>Ninguna</td>
-               <td>Parvovirus</td>
-               <td>8</td>
-               <td>13</td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             <tr>
-               <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td>{{m.nombrecompletoUsuario}}</td>
-               <td>Darth vader</td>
-               <td>gastroenteritis </td>
-               <td>gastroenteritis por covid</td>
-               <td>11</td>
-               <td>321</td>
-               <td>{{m.edadMascota}}</td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             <tr>
-               <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td>{{m.nombrecompletoUsuario}}</td>
-               <td>{{m.nombreMascota}}</td>
-               <td>Niguna</td>
-               <td>Rabia</td>
-               <td>4</td>
-               <td>152</td>
-               <td>{{m.edadMascota}}</td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             <tr>
-               <td><img src="{{m.foto.url}}" alt="No foto"></td>
-               <td>{{m.nombrecompletoUsuario}}</td>
-               <td>{{m.nombreMascota}}</td>
-               <td>Ninguna</td>
-               <td>Parásitos intestinales</td>
-               <td>6</td>
-               <td>135</td>
-               <td>{{m.edadMascota}}</td>
-               <td>{{m.codigoChip}}</td>
-             </tr>
-             {% endfor %}
-             {% endfor %}
+    <table border="1">
+      <tr>
+          <th>chip mascota</th>
+          <th>nombre mascota </th>
+          <th>edad mascota</th>
+          <th>fecha nacimiento mascota</th>
+          <th>enfermedad mascota</th>
+          <th>Archivos</th>
+          <th>raza mascota</th>
+          <th>nombre dueno</th>
+          <th>Acciones</th>
+      </tr>
 
+      {% for m in mascotas %}
+      <tr>
+        <td>{{m.codigoChip}}</td>
+        <td> {{m.MascotaNombre}}</td>
+        <td>{{m.edadMascota}}</td>
+        <td>{{m.fechaNacimiento}}</td>
+        <td>{{m.enfermedades}} </td>
 
+        <td><img src="{{m.foto.url}}" alt="No foto"></td>
+
+        <td> {{m.raza}} </td>
+        <td> {{m.nombreDueno}} </td>
+        <td>
+          <a href="{% url 'eliminarM' m.codigoChip %}" class="btn btn-danger">Eliminar</a>
+        </td>
+
+      </tr>
+      {% endfor %}
+
+  </table>
 
 
   <script src="{%static 'menu/java_administrador/tablaYbusquedad.js%}"></script>

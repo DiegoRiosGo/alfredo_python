@@ -17,57 +17,45 @@
 
   <div class="box">Registra a tu Paciente </div>
   <div class="container">
-    <table class="table table-fixed">
-      <form action="#" method="POST" enctype="multipart/form-data" >
-      <thead>
-        <tr>
-          <th class="col-xs-3" id="nombre_mascota">Nombre Mascota</th>
-          <th class="col-xs-3" id="nombre_mascota">Raza Mascota</th>
-          <th class="col-xs-3" id="nombre_dueño">Nombre Dueño</th>
-          <th class="col-xs-6" id="enfermedades">Enfermedades</th>
-          <th id="años_mascota">Años Mascota</th>
-          
-          
-        </tr>
-     
-      </thead>
-      
-     <td> <form action="#Inicio" class="d-flex" role="text"  method="POST" enctype="multipart/form-data" >
-        <input class="form-control me-3"
-      type="text" id="nombre_mascota1" placeholder="" aria-label="Search" >
-             </form>
-             <td> 
-              <form action="#Inicio" class="d-flex1" role="text" method="POST" enctype="multipart/form-data" >
-                 <input class="form-control me-3" type="text" placeholder="" aria-label="Search" id="raza_mascota">
-               </form>
-            </td>
-              <td> 
-                <form action="#Inicio" class="d-flex1" role="text" method="POST" enctype="multipart/form-data" >
-                   <input class="form-control me-3" type="text" placeholder="" aria-label="Search" id="nombre_dueño1">
-                 </form>
-              </td>
-<td>
-  <form action="#Inicio" class="d-flex2" role="text" method="POST" enctype="multipart/form-data" >
-     <input class="form-control me-3" type="number" placeholder="" aria-label="Search" id="enfermedades1">
-    
-  </form>
-</td>
+      <form action="{% url 'ingreso_mascota' %}" id="contact"  method="POST" enctype="multipart/form-data" >
+        {% crsf_token %}
+        <h3>Registro Paciente</h3>
+        <fieldset>
+          <input placeholder="codigo chip mascota" type="text" tabindex="1" id="Codigo" name='Codigo' autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="nombre mascota " type="text" tabindex="2" id="nombre_mascota" name='nombre_mascota'>
+        </fieldset>
+        <fieldset>
+          <input placeholder="edad de mascota " type="number" tabindex="3" id="Edad" name='Edad'>
+        </fieldset>
+        <fieldset>
+          <input placeholder="fecha nacimiento de Mascota" type="date" tabindex="1" id="Fecha" name='Fecha' autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="enfermedad mascota" type="text" tabindex="5" id="enfermedades" name='enfermedades'>
+        </fieldset>
+        <fieldset>
+          <input accept=".jpg, .jpeg, .png, .pdf" type="file" id="archivo_mascota" name="archivo_mascota" required>
+        </fieldset>
 
-<td>
-  <form action="Inicio.html" class="d-flex3" role="text" method="POST" enctype="multipart/form-data" >
-   <input class="form-control me-3" type="text" placeholder="" aria-label="Search" id="años_mascota1">
-
-
-   
-<div class="editarboton"><button type="button"onclick='return enviarformulario_r();' values="enviar" class="btn btn-outline-primary">Guardar</button></div></div> 
-<div id="error"></div>
-</form>
-  </form>
-  
-</td>
-
-      <tbody>
-        
+        <fieldset>
+          <select class="form-control" name="raza" id="raza">
+            {% for x in razas %}
+            <option value="{{x.codigoRaza}}">{{x.nombreRaza}}</option>
+            {% endfor %}
+          </select>
+        </fieldset>
+        <fieldset>
+          <input placeholder="nombre dueno" type="text" tabindex="5" id="dueno" name='dueno'>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" onclick='return enviarformulario_contacto();' values="enviar"
+            id="contact-submit" data-submit="...Sending">Enviar</button>
+          <div id="error"></div>
+        </fieldset>
+      </form>
+  </div>       
 
         <script src="{%static 'menu/veterinaria_juanita/HTML/JAVA/javaFormulario.js' %}"></script>
         

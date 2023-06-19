@@ -19,24 +19,24 @@
   <div class="box">CONTACTO</div>
 
   <div class="container">
-    <form action="{% url 'contactos' %}" id="contact"  method="POST" enctype="multipart/form-data" >
+    <form action="{% url 'ingreso_contactos' %}" id="contact"  method="POST" enctype="multipart/form-data" >
       {% crsf_token %}
       <h3>Contacto</h3>
       <h4>Estamos aca para responder cualquier consulta que tengas!</h4>
       <fieldset>
-        <input placeholder="Nombre" type="text" tabindex="1" id="nombre_contacto" autofocus>
+        <input placeholder="Nombre" type="text" tabindex="1" id="nombre_contacto" name='nombre_contacto' autofocus>
       </fieldset>
       <fieldset>
-        <input placeholder="Correo eletronico" type="email" tabindex="2" id="correo_contacto">
+        <input placeholder="Correo eletronico" type="email" tabindex="2" id="correo_contacto" name='correo_contacto'>
       </fieldset>
       <fieldset>
-        <input placeholder="Numero Telefonico" type="number" tabindex="3" id="nro_contacto">
+        <input placeholder="Numero Telefonico" type="number" tabindex="3" id="nro_contacto" name='nro_contacto'>
       </fieldset>
       <fieldset>
-        <input placeholder="Nombre de Mascota" type="text" tabindex="1" id="nombre_m_contacto" autofocus>
+        <input placeholder="Nombre de Mascota" type="text" tabindex="1" id="nombre_m_contacto" name='nombre_m_contacto' autofocus>
       </fieldset>
       <fieldset>
-        <textarea placeholder="Ingresa tu mensaje aqui" tabindex="5" id="msg_contacto"></textarea>
+        <textarea placeholder="Ingresa tu mensaje aqui" tabindex="5" id="msg_contacto" name='msg_contacto'></textarea>
       </fieldset>
       <fieldset>
         <button name="submit" type="submit" onclick='return enviarformulario_contacto();' values="enviar"

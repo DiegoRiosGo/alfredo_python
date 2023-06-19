@@ -18,77 +18,36 @@
   <h2 class="box">Contacto con Clientes <img class="icono"
       src="https://images.vexels.com/media/users/3/154431/isolated/preview/1b0612bca0cd99911b17c88392db70ca-icono-de-contacto-de-soporte-al-cliente.png"
      ></h2>
-     {% for m in Contacto_Clientes %}
-     <form action="" method="POST" enctype="multipart/form-data">
-     <td>{{m.correoContacto}}</td>
-     <td > {{m.NombreContacto}}  </td>
-     <td > {{m.nombreMascota}}</td>
-     <td > {{m.TelefonoContacto}}</td>
-     <td>{{m.mensajeContacto}}</td>
+     <table border="1">
+      <tr>
+          <th>NombreContacto</th>
+          <th>correoContacto</th>
+          <th>TelefonoContacto</th>
+          <th>nombreMascota</th>
+          <th>mensajeContacto</th>
+          <th>Respuesta</th>
+          <th>Acciones</th>
+      </tr>
+     {% for m in contactos %}
+        <form action="" >
+          <tr>
+            <td>{{m.NombreContacto}}</td>
+            <td>{{m.correoContacto}}</td>
+            <td >{{m.TelefonoContacto}}</td>
+            <td>{{m.nombreMascota}}</td>
+            <td>{{m.mensajeContacto}}</td>
 
-     <td><input type="text" id="r" name="respuesta" size="20"> <button type="submit"  class="btn btn-outline-info" 
-       onclick='return enviarformulario_contacto_con_cliente();'
-         submit >Enviar</button> </td>
-   </tr>
-   <div id="error"></div>
- </form>
-
- <form action="" >
-   <tr>
-     <td>{{m.correoContacto}}</td>
-     <td>{{m.NombreContacto}}</td>
-     <td > {{m.nombreMascota}}</td>
-     <td>{{m.TelefonoContacto}}</td>
-     <td>{{m.mensajeContacto}}</td>
-
-     <td><input type="text" id="r1" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
-       onclick='return enviarformulario_contacto_con_cliente1();'
-         submit>Enviar</button> </td>
-   </tr>
-   <div id="error"></div>
- </form>
-
- <form action="">
-   <tr>
-     <td>{{m.correoContacto}}</td>
-     <td>{{m.NombreContacto}}</td>
-     <td >{{m.nombreMascota}}</td>
-     <td>{{m.TelefonoContacto}}</td>
-     <td>{{m.mensajeContacto}}</td>
-
-     <td><input type="text" name="respuesta" size="20" id="r2"> <button type="submit" class="btn btn-outline-info"
-       onclick='return enviarformulario_contacto_con_cliente2();' >Enviar</button> submit>Enviar</button> </td>
-   </tr>
-   <div id="error"></div>
- </form>
-
- <form action="">
-
-
-   <tr>
-     <td>{{m.correoContacto}}</td>
-     <td>{{m.NombreContacto}}</td>
-     <td > {{m.nombreMascota}}</td>
-     <td>{{m.TelefonoContacto}}</td>
-     <td>{{m.mensajeContacto}}</td>
-
-     <td><input type="text" name="respuesta" size="20" id="r3"> <button type="submit" class="btn btn-outline-info"
-       onclick='return enviarformulario_contacto_con_cliente3();' submit>Enviar</button> </td>
-   </tr>
-   <div id="error"></div>
- </form>
-
- <form action="">
-   <tr>
-     <td>{{m.correoContacto}}</td>
-     <td>{{m.NombreContacto}}</td>
-     <td > {{m.nombreMascota}}</td>
-     <td>{{m.TelefonoContacto}}</td>
-     <td>{{m.mensajeContacto}}</td>
-
-     <td><input type="text" name="respuesta" size="20" id="r4"> <button type="submit" class="btn btn-outline-info"
-       onclick='return enviarformulario_contacto_con_cliente4();' submit>Enviar</button> </td>
-       {% endfor %}
+            <td><input type="text" id="respuesta" name="respuesta" size="20"> <button type="submit" class="btn btn-outline-info"
+            onclick='return enviarformulario_contacto_con_cliente1();'
+            submit>Enviar</button> </td>
+            <td>
+              <a href="{% url 'eliminarC' m.idContacto %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+         <div id="error"></div>
+   
+        </form>
+      {% endfor %}
 
 <script src="{%static 'menu/java_administrador/javaFormulario.js' %}"></script>
 

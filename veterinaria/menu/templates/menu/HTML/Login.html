@@ -21,7 +21,7 @@
 
 <!--VALIDACIONES JS CREAR CUENTA-->
 
-      <form action="{% url 'registrarse'%}" id='formulario' method="POST" enctype="multipart/form-data">
+      <form action="{% url 'ingreso_registrarse'%}" id='formulario' method="POST" enctype="multipart/form-data">
         {% crsf_token %}
         <h1>Crear una cuenta</h1>
         <div class="social-container">
@@ -46,7 +46,7 @@
       <form action="#" method="POST" enctype="multipart/form-data">
         <h1>Iniciar sesión</h1>
         <div class="social-container">
-
+        <!--para inicio de sesion se necesita vista solamente-->
         </div>
         <!--InicioSesion-->
         <input type="email" placeholder="Correo electrónico" id="correolog" />
